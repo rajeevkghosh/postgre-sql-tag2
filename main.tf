@@ -1,20 +1,25 @@
 provider "google" {
     project = "airline1-sabre-wolverine"
-    access_token = var.access_token
+    #access_token = var.access_token
+    credentials = file("../cloudsql.json")
+    version = "4.2.0"
     
 }
 
 resource "google_sql_database_instance" "master" {
+  provider = google-beta
   name             = "us-dev-abcd-fghi-postgres-master1"
   database_version = "POSTGRES_11"
   region           = "us-central1"
   deletion_protection = false
-  encryption_key_name = ""
+  encryption_key_name = data.google_kms_crypto_key.crypto_key5.id
+  
 
   settings {
     # Second-generation instance tiers are based on the machine
     # type. See argument reference below.
     tier = "db-f1-micro"
+   
   }
 }
 
