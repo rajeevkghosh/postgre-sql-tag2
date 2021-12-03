@@ -10,7 +10,7 @@ resource "google_sql_database_instance" "master2" {
   database_version    = "POSTGRES_11"
   region              = "us-central1"
   deletion_protection = false
-  encryption_key_name = data.google_kms_crypto_key.crypto_key5.id
+  encryption_key_name = data.google_kms_crypto_key.crypto_key13.id
 
 
   settings {
@@ -22,13 +22,13 @@ resource "google_sql_database_instance" "master2" {
 }
 
 
-data "google_kms_crypto_key" "crypto_key5" {
-  name     = "us-dev-abcd-fghi-cryptokey5"
+data "google_kms_crypto_key" "crypto_key13" {
+  name     = "us-dev-abcd-fghi-cryptokey13"
   key_ring = data.google_kms_key_ring.key_ring.id
 }
 
 data "google_kms_key_ring" "key_ring" {
-  name     = "us-dev-abcd-fghi-keyring3"
-  location = "us"
+  name     = "us-dev-abcd-fghi-keyring1"
+  location = "us-central1"
 }
 
