@@ -1,8 +1,5 @@
 provider "google" {
     project = "airline1-sabre-wolverine"
-    #access_token = var.access_token
-    credentials = file("../cloudsql.json")
-    version = "4.2.0"
     
 }
 
