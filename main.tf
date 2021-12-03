@@ -9,7 +9,7 @@ resource "google_sql_database_instance" "master" {
   database_version = "POSTGRES_11"
   region           = "us-central1"
   deletion_protection = false
-  encryption_key_name = data.google_kms_crypto_key.crypto_key5.id
+  encryption_key_name = google_kms_crypto_key.crypto_key5.id
 
   settings {
     # Second-generation instance tiers are based on the machine
@@ -20,5 +20,6 @@ resource "google_sql_database_instance" "master" {
 
 
 data "google_kms_crypto_key" "crypto_key5" {
+  name = "us-dev-abcd-fghi-cryptokey5"
   }
 
