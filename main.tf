@@ -10,7 +10,7 @@ provider "google-beta" {
 resource "google_sql_database_instance" "master2" {
   provider            = google-beta
   project             = "airline1-sabre-wolverine"
-  name                = "us-dev-abcd-fghi-postgres-master2"
+  name                = "us-dev-abcd-fghi-postgres-master10"
   database_version    = "POSTGRES_11"
   region              = "us-central1"
   deletion_protection = false
