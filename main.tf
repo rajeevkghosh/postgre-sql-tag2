@@ -11,24 +11,32 @@ provider "google-beta" {
 
 
 resource "google_sql_database_instance" "master2" {
-  provider            = google-beta
+  provider            = google-beta #provider google-beta is used to enforce cmek
   project             = "airline1-sabre-wolverine"
-  name                = "us-prod-sql-app01-instance08"
-  database_version    = "POSTGRES_8"
-  region              = "asia-south1"
+  name                = "wf-us-prod-sql-app01-instance08"
+  database_version    = "POSTGRES_11"
+  region              = "us-central1"
   deletion_protection = false
-  #encryption_key_name = data.google_kms_crypto_key.crypto_key13.id
-
+  encryption_key_name = data.google_kms_crypto_key.crypto_key13.id
 
   settings {
     # Second-generation instance tiers are based on the machine
     # type. See argument reference below.
     tier = "db-f1-micro"
-      /*ip_configuration {
+    user_labels = {
+      application_division = "pci",
+      application_name     = "demo",
+      application_role     = "app",
+      au                   = "0223092",
+      created              = "20211122",
+      environment          = "nonprod",
+      gcp_region           = "us",
+      owner                = "hybridenv",
+    }
+    ip_configuration {
       ipv4_enabled    = false
       private_network = "projects/airline1-sabre-wolverine/global/networks/default"
-      
-    }*/
+    }
 
   }
 }
