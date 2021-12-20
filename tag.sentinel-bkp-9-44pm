@@ -1,0 +1,131 @@
+# This sentinel policies enforce Usage of specific lables on each resource
+# These sentinel policies enforce Wells Fargo security principles PR-172
+
+# Import common-functions/tfplan-functions/tfplan-functions.sentinel
+# with alias "plan"
+import "tfplan-functions" as plan
+import "types"
+
+# List of params
+param gcp_region
+param owner
+param application_division
+param application_name
+param application_role
+param environment
+param au
+
+# List of mandatory labels
+mandatory_labels = {
+	"gcp_region":           gcp_region,
+	"owner":                owner,
+	"application_division": application_division,
+	"application_name":     application_name,
+	"application_role":     application_role,
+	"environment":          environment,
+	"au":                   au,
+	"created":              null,
+}
+
+# Resource Types to check labels
+resourceTypes = [
+	"google_pubsub_topic",
+	"google_secret_manager_secret",
+	"google_dataproc_cluster",
+	"google_kms_crypto_key",
+	"google_bigquery_dataset",
+	"google_compute_forwarding_rule",
+	"google_storage_bucket",
+	"google_spanner_instance",
+    "google_sql_database_instance",
+]
+
+# Function to Check if Labels Values are allowed
+check_label_value = func(rc, label_key, label_value) {
+	rc_label_value = plan.evaluate_attribute(rc, "labels." + label_key)
+	if label_value not contains rc_label_value {
+		return false
+	} else {
+		return true
+	}
+}
+
+# Fetch all resources based on resourceTypes
+allResources = {}
+sql_instance = false
+for resourceTypes as rt {
+	resources = plan.find_resources(rt)
+	for resources as address, rc {
+		allResources[address] = rc
+        if (rc["type"]=="google_sql_database_instance") {
+            sql_instance = true
+            print(sql_instance)
+        }
+	}
+}
+# Fetch all resources which dont have mandatory_labels
+//violatingResources = plan.filter_attribute_not_contains_list(allResources,
+//	a, keys(mandatory_labels), true)
+#label_sql = settings[0]["user_labels"]
+sql_label = ""
+for allResources as address, rc {
+label = plan.evaluate_attribute(rc.change.after,"settings")
+sql_label = label[0]["user_labels"]
+print(sql_label)	
+for sql_label as at, lp {
+    if at in mandatory_labels {
+        print(at)
+        print("match")
+    } else {
+        print(at)
+        print ("NO MATCH")
+    }
+}	
+}
+#sql_label = plan.evaluate_attribute(rc[change][after][settings][0]["user_labels"], "user_labels")
+#print(violatingResources_sql)
+if sql_instance {
+violatingResources = plan.filter_attribute_not_contains_list(allResources,
+	"labels", keys(mandatory_labels), true)
+
+}
+
+# Rule to evaluate mandatory_labels
+AllLabelsExist = rule {
+	length(violatingResources["messages"]) is 0
+}
+
+# Declare  violators  & messages Map
+violators = {}
+messages = {}
+if AllLabelsExist {
+	for allResources as address, rc {
+		messages[address] = []
+		violation = false
+		for mandatory_labels as lk, lv {
+			if types.type_of(lv) is not "null" {
+				if not check_label_value(rc, lk, lv) {
+					violation = true
+					append(messages[address], plan.to_string(lk) + " Label with value " + plan.to_string(plan.evaluate_attribute(rc, "labels." + lk)) + " is not allowed")
+				}
+			}
+		}
+
+		if violation {
+			violators[address] = rc
+		}
+	}
+}
+
+# print messages on failure
+if length(violators) > 0 {
+	#print(messages)
+}
+
+# Rule to evaluate mandatory_labels & label Values
+GCP_RES_LABELS = rule { length(violators) is 0 and AllLabelsExist }
+
+# Main rule
+main = rule {
+	GCP_RES_LABELS
+}

@@ -1,0 +1,137 @@
+import "strings"
+import "types"
+
+outputs = {}
+
+_modules = {
+	"root": {
+		"data": {
+			"google_kms_crypto_key": {
+				"nav-key13": {
+					0: {
+						"attr": {
+							"destroy_scheduled_duration": "86400s",
+							"id":          "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
+							"import_only": true,
+							"key_ring":    "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05",
+							"labels": {
+								"application_division": "pci",
+								"application_name":     "demo",
+								"application_role":     "app",
+								"au":                   "0223092",
+								"created":              "20211122",
+								"environment":          "nonprod",
+								"gcp_region":           "us",
+								"owner":                "hybridenv",
+							},
+							"name":                          "wf-us-prod-kms-app01-res0501",
+							"purpose":                       "ENCRYPT_DECRYPT",
+							"rotation_period":               "",
+							"skip_initial_version_creation": null,
+							"version_template": [
+								{
+									"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+									"protection_level": "SOFTWARE",
+								},
+							],
+						},
+						"depends_on": [],
+						"id":         "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
+						"tainted":    false,
+					},
+				},
+				"nav-key23": {
+					0: {
+						"attr": {
+							"destroy_scheduled_duration": "86400s",
+							"id":          "projects/airline1-sabre-wolverine/locations/us-east1/keyRings/wf-us-prod-kms-app01-res06/cryptoKeys/wf-us-prod-kms-app01-res0601",
+							"import_only": true,
+							"key_ring":    "projects/airline1-sabre-wolverine/locations/us-east1/keyRings/wf-us-prod-kms-app01-res06",
+							"labels": {
+								"application_division": "pci",
+								"application_name":     "demo",
+								"application_role":     "app",
+								"au":                   "0223092",
+								"created":              "20211122",
+								"environment":          "nonprod",
+								"gcp_region":           "us",
+								"owner":                "hybridenv",
+							},
+							"name":                          "wf-us-prod-kms-app01-res0601",
+							"purpose":                       "ENCRYPT_DECRYPT",
+							"rotation_period":               "",
+							"skip_initial_version_creation": null,
+							"version_template": [
+								{
+									"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+									"protection_level": "SOFTWARE",
+								},
+							],
+						},
+						"depends_on": [],
+						"id":         "projects/airline1-sabre-wolverine/locations/us-east1/keyRings/wf-us-prod-kms-app01-res06/cryptoKeys/wf-us-prod-kms-app01-res0601",
+						"tainted":    false,
+					},
+				},
+			},
+			"google_kms_key_ring": {
+				"keyring1": {
+					0: {
+						"attr": {
+							"id":       "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05",
+							"location": "us-central1",
+							"name":     "wf-us-prod-kms-app01-res05",
+							"project":  "airline1-sabre-wolverine",
+						},
+						"depends_on": [],
+						"id":         "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05",
+						"tainted":    false,
+					},
+				},
+				"keyring2": {
+					0: {
+						"attr": {
+							"id":       "projects/airline1-sabre-wolverine/locations/us-east1/keyRings/wf-us-prod-kms-app01-res06",
+							"location": "us-east1",
+							"name":     "wf-us-prod-kms-app01-res06",
+							"project":  "airline1-sabre-wolverine",
+						},
+						"depends_on": [],
+						"id":         "projects/airline1-sabre-wolverine/locations/us-east1/keyRings/wf-us-prod-kms-app01-res06",
+						"tainted":    false,
+					},
+				},
+			},
+		},
+		"path":      [],
+		"resources": {},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "1.0.11"
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

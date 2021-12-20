@@ -1,0 +1,190 @@
+import "strings"
+import "types"
+
+outputs = {}
+
+_modules = {
+	"root": {
+		"data": {
+			"google_kms_crypto_key": {
+				"crypto_key13": {
+					0: {
+						"attr": {
+							"destroy_scheduled_duration": "86400s",
+							"id":          "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
+							"import_only": true,
+							"key_ring":    "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05",
+							"labels": {
+								"application_division": "pci",
+								"application_name":     "demo",
+								"application_role":     "app",
+								"au":                   "0223092",
+								"created":              "20211122",
+								"environment":          "nonprod",
+								"gcp_region":           "us",
+								"owner":                "hybridenv",
+							},
+							"name":                          "wf-us-prod-kms-app01-res0501",
+							"purpose":                       "ENCRYPT_DECRYPT",
+							"rotation_period":               "",
+							"skip_initial_version_creation": null,
+							"version_template": [
+								{
+									"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+									"protection_level": "SOFTWARE",
+								},
+							],
+						},
+						"depends_on": [],
+						"id":         "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
+						"tainted":    false,
+					},
+				},
+			},
+			"google_kms_key_ring": {
+				"key_ring": {
+					0: {
+						"attr": {
+							"id":       "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05",
+							"location": "us-central1",
+							"name":     "wf-us-prod-kms-app01-res05",
+							"project":  "airline1-sabre-wolverine",
+						},
+						"depends_on": [],
+						"id":         "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05",
+						"tainted":    false,
+					},
+				},
+			},
+		},
+		"path": [],
+		"resources": {
+			"google_sql_database_instance": {
+				"master2": {
+					0: {
+						"attr": {
+							"clone":               [],
+							"connection_name":     "airline1-sabre-wolverine:us-central1:wf-us-prod-sql-app01-instance08",
+							"database_version":    "POSTGRES_11",
+							"deletion_protection": false,
+							"encryption_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
+							"first_ip_address":    "10.63.129.7",
+							"id":                  "wf-us-prod-sql-app01-instance08",
+							"ip_address": [
+								{
+									"ip_address":     "10.63.129.7",
+									"time_to_retire": "",
+									"type":           "PRIVATE",
+								},
+							],
+							"master_instance_name":   "",
+							"name":                   "wf-us-prod-sql-app01-instance08",
+							"private_ip_address":     "10.63.129.7",
+							"project":                "airline1-sabre-wolverine",
+							"public_ip_address":      "",
+							"region":                 "us-central1",
+							"replica_configuration":  [],
+							"restore_backup_context": [],
+							"root_password":          "REDACTED_SENSITIVE",
+							"self_link":              "https://sqladmin.googleapis.com/sql/v1beta4/projects/airline1-sabre-wolverine/instances/wf-us-prod-sql-app01-instance08",
+							"server_ca_cert": [
+								{
+									"cert":             "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyQzMWU2\nZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjExMjIwMTA1OTUxWhcNMzExMjE4MTEwMDUxWjB3MS0wKwYD\nVQQuEyQzMWU2ZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCz6rFrs0pai1FAuGsvinN7IipEVAsEi0mw5DHXSE9+FZrAkbT6Ci/BlnbIpN4B\n8OXx1FZLyBmyJ784LYBuMmk17rm8oi3XfvZJtWx+6Oh0yyTE75LRrOKIRqGSjMJs\nyciuCQ1XIiseANzzmNhGTggpjA7hYih3cvFJ/JsyWDoaAoZnWhgDPAM5s22U+1a9\nNX+MQnP5HYG5p9wSk5TNWxjPdV7JcYOwvumpHd05WUgUdoM9q4PkrmHPmT/mBWIq\nE1dShJdsMa7NoBRqBwGuIDKkJBTvLyW/L0FVv1+K6+r3cnxMT9VYFcp8bDHtgbSu\nB4NoPlGUiDwqdfska/NQGCnxAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAHfJseuDatDq6bHKt8CAJJlTgcpoAImkKEUrZx+n\nDW0lNB0oRg+3Q8ZjVqQMCrMaHYgCtjtAwRILzgCr6WUnmWETMg55LG31wVMf8r1j\nHjJ6wbM3Sf5AUcDjYurqxwLHGgAlfjZYSfwzp2P4b7g71AZWlWjAmyoZDqLDHCTQ\nmheZNsE6gau2hHSqE6WeTtwiOqPkAPlHkgzMIiP0NeMRnIOpecrlDLctU/uQlq97\nz7yIEiUDcYnacK6ABkjpyeATXcV8t076h7X77VGb5HYcZB4j+vXUTzQuw9HSGOKA\nXICaFHmjLVzZGavaZFinQSajH7baDMAmoOMCkIiueBhaHBE=\n-----END CERTIFICATE-----",
+									"common_name":      "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=31e6ddbc-a9f9-44a5-86d8-6ba1407ebe2b",
+									"create_time":      "2021-12-20T10:59:51.009Z",
+									"expiration_time":  "2031-12-18T11:00:51.009Z",
+									"sha1_fingerprint": "fe814bb50a7e765e9edc900eb8966551227b6e7c",
+								},
+							],
+							"service_account_email_address": "p680501254856-9opkuo@gcp-sa-cloud-sql.iam.gserviceaccount.com",
+							"settings": [
+								{
+									"activation_policy": "ALWAYS",
+									"availability_type": "ZONAL",
+									"backup_configuration": [
+										{
+											"backup_retention_settings": [
+												{
+													"retained_backups": 7,
+													"retention_unit":   "COUNT",
+												},
+											],
+											"binary_log_enabled":             false,
+											"enabled":                        false,
+											"location":                       "",
+											"point_in_time_recovery_enabled": false,
+											"start_time":                     "03:00",
+											"transaction_log_retention_days": 7,
+										},
+									],
+									"collation":             "",
+									"database_flags":        [],
+									"disk_autoresize":       true,
+									"disk_autoresize_limit": 0,
+									"disk_size":             10,
+									"disk_type":             "PD_SSD",
+									"insights_config":       [],
+									"ip_configuration": [
+										{
+											"allocated_ip_range":  "",
+											"authorized_networks": [],
+											"ipv4_enabled":        false,
+											"private_network":     "projects/airline1-sabre-wolverine/global/networks/default",
+											"require_ssl":         false,
+										},
+									],
+									"location_preference": [
+										{
+											"follow_gae_application": "",
+											"zone": "us-central1-f",
+										},
+									],
+									"maintenance_window": [],
+									"pricing_plan":       "PER_USE",
+									"tier":               "db-f1-micro",
+									"user_labels":        {},
+									"version":            1,
+								},
+							],
+							"timeouts": null,
+						},
+						"depends_on": [
+							"data.google_kms_crypto_key.crypto_key13",
+							"data.google_kms_key_ring.key_ring",
+						],
+						"id":      "wf-us-prod-sql-app01-instance08",
+						"tainted": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "1.1.2"
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

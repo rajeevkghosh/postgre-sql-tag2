@@ -1,0 +1,536 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"google_sql_database_instance": {
+				"master2": {
+					0: {
+						"applied": {
+							"clone":               [],
+							"connection_name":     "airline1-sabre-wolverine:us-central1:wf-us-prod-sql-app01-instance08",
+							"database_version":    "POSTGRES_11",
+							"deletion_protection": false,
+							"encryption_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
+							"first_ip_address":    "10.63.129.7",
+							"id":                  "wf-us-prod-sql-app01-instance08",
+							"ip_address": [
+								{
+									"ip_address":     "10.63.129.7",
+									"time_to_retire": "",
+									"type":           "PRIVATE",
+								},
+							],
+							"master_instance_name":   "",
+							"name":                   "wf-us-prod-sql-app01-instance08",
+							"private_ip_address":     "10.63.129.7",
+							"project":                "airline1-sabre-wolverine",
+							"public_ip_address":      "",
+							"region":                 "us-central1",
+							"replica_configuration":  [],
+							"restore_backup_context": [],
+							"root_password":          "REDACTED_SENSITIVE",
+							"self_link":              "https://sqladmin.googleapis.com/sql/v1beta4/projects/airline1-sabre-wolverine/instances/wf-us-prod-sql-app01-instance08",
+							"server_ca_cert": [
+								{
+									"cert":             "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyQzMWU2\nZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjExMjIwMTA1OTUxWhcNMzExMjE4MTEwMDUxWjB3MS0wKwYD\nVQQuEyQzMWU2ZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCz6rFrs0pai1FAuGsvinN7IipEVAsEi0mw5DHXSE9+FZrAkbT6Ci/BlnbIpN4B\n8OXx1FZLyBmyJ784LYBuMmk17rm8oi3XfvZJtWx+6Oh0yyTE75LRrOKIRqGSjMJs\nyciuCQ1XIiseANzzmNhGTggpjA7hYih3cvFJ/JsyWDoaAoZnWhgDPAM5s22U+1a9\nNX+MQnP5HYG5p9wSk5TNWxjPdV7JcYOwvumpHd05WUgUdoM9q4PkrmHPmT/mBWIq\nE1dShJdsMa7NoBRqBwGuIDKkJBTvLyW/L0FVv1+K6+r3cnxMT9VYFcp8bDHtgbSu\nB4NoPlGUiDwqdfska/NQGCnxAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAHfJseuDatDq6bHKt8CAJJlTgcpoAImkKEUrZx+n\nDW0lNB0oRg+3Q8ZjVqQMCrMaHYgCtjtAwRILzgCr6WUnmWETMg55LG31wVMf8r1j\nHjJ6wbM3Sf5AUcDjYurqxwLHGgAlfjZYSfwzp2P4b7g71AZWlWjAmyoZDqLDHCTQ\nmheZNsE6gau2hHSqE6WeTtwiOqPkAPlHkgzMIiP0NeMRnIOpecrlDLctU/uQlq97\nz7yIEiUDcYnacK6ABkjpyeATXcV8t076h7X77VGb5HYcZB4j+vXUTzQuw9HSGOKA\nXICaFHmjLVzZGavaZFinQSajH7baDMAmoOMCkIiueBhaHBE=\n-----END CERTIFICATE-----",
+									"common_name":      "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=31e6ddbc-a9f9-44a5-86d8-6ba1407ebe2b",
+									"create_time":      "2021-12-20T10:59:51.009Z",
+									"expiration_time":  "2031-12-18T11:00:51.009Z",
+									"sha1_fingerprint": "fe814bb50a7e765e9edc900eb8966551227b6e7c",
+								},
+							],
+							"service_account_email_address": "p680501254856-9opkuo@gcp-sa-cloud-sql.iam.gserviceaccount.com",
+							"settings": [
+								{
+									"activation_policy": "ALWAYS",
+									"availability_type": "ZONAL",
+									"backup_configuration": [
+										{
+											"backup_retention_settings": [
+												{
+													"retained_backups": 7,
+													"retention_unit":   "COUNT",
+												},
+											],
+											"binary_log_enabled":             false,
+											"enabled":                        false,
+											"location":                       "",
+											"point_in_time_recovery_enabled": false,
+											"start_time":                     "03:00",
+											"transaction_log_retention_days": 7,
+										},
+									],
+									"collation":             "",
+									"database_flags":        [],
+									"disk_autoresize":       true,
+									"disk_autoresize_limit": 0,
+									"disk_size":             10,
+									"disk_type":             "PD_SSD",
+									"insights_config":       [],
+									"ip_configuration": [
+										{
+											"allocated_ip_range":  "",
+											"authorized_networks": [],
+											"ipv4_enabled":        false,
+											"private_network":     "projects/airline1-sabre-wolverine/global/networks/default",
+											"require_ssl":         false,
+										},
+									],
+									"location_preference": [
+										{
+											"follow_gae_application": "",
+											"zone": "us-central1-f",
+										},
+									],
+									"maintenance_window": [],
+									"pricing_plan":       "PER_USE",
+									"tier":               "db-f1-micro",
+									"user_labels": {
+										"application_division": "pci",
+										"application_name":     "demo",
+										"application_role":     "app",
+										"au":                   "0223092",
+										"created":              "20211122",
+										"environment":          "nonprod",
+										"gcp_region":           "us",
+										"owner":                "hybridenv",
+									},
+									"version": 1,
+								},
+							],
+							"timeouts": null,
+						},
+						"destroy": false,
+						"diff": {
+							"clone.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "0",
+							},
+							"connection_name": {
+								"computed": false,
+								"new":      "airline1-sabre-wolverine:us-central1:wf-us-prod-sql-app01-instance08",
+								"old":      "airline1-sabre-wolverine:us-central1:wf-us-prod-sql-app01-instance08",
+							},
+							"database_version": {
+								"computed": false,
+								"new":      "POSTGRES_11",
+								"old":      "POSTGRES_11",
+							},
+							"deletion_protection": {
+								"computed": false,
+								"new":      "false",
+								"old":      "false",
+							},
+							"encryption_key_name": {
+								"computed": false,
+								"new":      "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
+								"old":      "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
+							},
+							"first_ip_address": {
+								"computed": false,
+								"new":      "10.63.129.7",
+								"old":      "10.63.129.7",
+							},
+							"id": {
+								"computed": false,
+								"new":      "wf-us-prod-sql-app01-instance08",
+								"old":      "wf-us-prod-sql-app01-instance08",
+							},
+							"ip_address.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "1",
+							},
+							"ip_address.0.%": {
+								"computed": false,
+								"new":      "3",
+								"old":      "3",
+							},
+							"ip_address.0.ip_address": {
+								"computed": false,
+								"new":      "10.63.129.7",
+								"old":      "10.63.129.7",
+							},
+							"ip_address.0.time_to_retire": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_address.0.type": {
+								"computed": false,
+								"new":      "PRIVATE",
+								"old":      "PRIVATE",
+							},
+							"master_instance_name": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "wf-us-prod-sql-app01-instance08",
+								"old":      "wf-us-prod-sql-app01-instance08",
+							},
+							"private_ip_address": {
+								"computed": false,
+								"new":      "10.63.129.7",
+								"old":      "10.63.129.7",
+							},
+							"project": {
+								"computed": false,
+								"new":      "airline1-sabre-wolverine",
+								"old":      "airline1-sabre-wolverine",
+							},
+							"public_ip_address": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"region": {
+								"computed": false,
+								"new":      "us-central1",
+								"old":      "us-central1",
+							},
+							"replica_configuration.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "0",
+							},
+							"restore_backup_context.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "0",
+							},
+							"root_password": {
+								"computed": false,
+								"new":      "REDACTED_SENSITIVE",
+								"old":      "REDACTED_SENSITIVE",
+							},
+							"self_link": {
+								"computed": false,
+								"new":      "https://sqladmin.googleapis.com/sql/v1beta4/projects/airline1-sabre-wolverine/instances/wf-us-prod-sql-app01-instance08",
+								"old":      "https://sqladmin.googleapis.com/sql/v1beta4/projects/airline1-sabre-wolverine/instances/wf-us-prod-sql-app01-instance08",
+							},
+							"server_ca_cert.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "1",
+							},
+							"server_ca_cert.0.%": {
+								"computed": false,
+								"new":      "5",
+								"old":      "5",
+							},
+							"server_ca_cert.0.cert": {
+								"computed": false,
+								"new":      "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyQzMWU2\nZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjExMjIwMTA1OTUxWhcNMzExMjE4MTEwMDUxWjB3MS0wKwYD\nVQQuEyQzMWU2ZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCz6rFrs0pai1FAuGsvinN7IipEVAsEi0mw5DHXSE9+FZrAkbT6Ci/BlnbIpN4B\n8OXx1FZLyBmyJ784LYBuMmk17rm8oi3XfvZJtWx+6Oh0yyTE75LRrOKIRqGSjMJs\nyciuCQ1XIiseANzzmNhGTggpjA7hYih3cvFJ/JsyWDoaAoZnWhgDPAM5s22U+1a9\nNX+MQnP5HYG5p9wSk5TNWxjPdV7JcYOwvumpHd05WUgUdoM9q4PkrmHPmT/mBWIq\nE1dShJdsMa7NoBRqBwGuIDKkJBTvLyW/L0FVv1+K6+r3cnxMT9VYFcp8bDHtgbSu\nB4NoPlGUiDwqdfska/NQGCnxAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAHfJseuDatDq6bHKt8CAJJlTgcpoAImkKEUrZx+n\nDW0lNB0oRg+3Q8ZjVqQMCrMaHYgCtjtAwRILzgCr6WUnmWETMg55LG31wVMf8r1j\nHjJ6wbM3Sf5AUcDjYurqxwLHGgAlfjZYSfwzp2P4b7g71AZWlWjAmyoZDqLDHCTQ\nmheZNsE6gau2hHSqE6WeTtwiOqPkAPlHkgzMIiP0NeMRnIOpecrlDLctU/uQlq97\nz7yIEiUDcYnacK6ABkjpyeATXcV8t076h7X77VGb5HYcZB4j+vXUTzQuw9HSGOKA\nXICaFHmjLVzZGavaZFinQSajH7baDMAmoOMCkIiueBhaHBE=\n-----END CERTIFICATE-----",
+								"old":      "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyQzMWU2\nZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjExMjIwMTA1OTUxWhcNMzExMjE4MTEwMDUxWjB3MS0wKwYD\nVQQuEyQzMWU2ZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCz6rFrs0pai1FAuGsvinN7IipEVAsEi0mw5DHXSE9+FZrAkbT6Ci/BlnbIpN4B\n8OXx1FZLyBmyJ784LYBuMmk17rm8oi3XfvZJtWx+6Oh0yyTE75LRrOKIRqGSjMJs\nyciuCQ1XIiseANzzmNhGTggpjA7hYih3cvFJ/JsyWDoaAoZnWhgDPAM5s22U+1a9\nNX+MQnP5HYG5p9wSk5TNWxjPdV7JcYOwvumpHd05WUgUdoM9q4PkrmHPmT/mBWIq\nE1dShJdsMa7NoBRqBwGuIDKkJBTvLyW/L0FVv1+K6+r3cnxMT9VYFcp8bDHtgbSu\nB4NoPlGUiDwqdfska/NQGCnxAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAHfJseuDatDq6bHKt8CAJJlTgcpoAImkKEUrZx+n\nDW0lNB0oRg+3Q8ZjVqQMCrMaHYgCtjtAwRILzgCr6WUnmWETMg55LG31wVMf8r1j\nHjJ6wbM3Sf5AUcDjYurqxwLHGgAlfjZYSfwzp2P4b7g71AZWlWjAmyoZDqLDHCTQ\nmheZNsE6gau2hHSqE6WeTtwiOqPkAPlHkgzMIiP0NeMRnIOpecrlDLctU/uQlq97\nz7yIEiUDcYnacK6ABkjpyeATXcV8t076h7X77VGb5HYcZB4j+vXUTzQuw9HSGOKA\nXICaFHmjLVzZGavaZFinQSajH7baDMAmoOMCkIiueBhaHBE=\n-----END CERTIFICATE-----",
+							},
+							"server_ca_cert.0.common_name": {
+								"computed": false,
+								"new":      "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=31e6ddbc-a9f9-44a5-86d8-6ba1407ebe2b",
+								"old":      "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=31e6ddbc-a9f9-44a5-86d8-6ba1407ebe2b",
+							},
+							"server_ca_cert.0.create_time": {
+								"computed": false,
+								"new":      "2021-12-20T10:59:51.009Z",
+								"old":      "2021-12-20T10:59:51.009Z",
+							},
+							"server_ca_cert.0.expiration_time": {
+								"computed": false,
+								"new":      "2031-12-18T11:00:51.009Z",
+								"old":      "2031-12-18T11:00:51.009Z",
+							},
+							"server_ca_cert.0.sha1_fingerprint": {
+								"computed": false,
+								"new":      "fe814bb50a7e765e9edc900eb8966551227b6e7c",
+								"old":      "fe814bb50a7e765e9edc900eb8966551227b6e7c",
+							},
+							"service_account_email_address": {
+								"computed": false,
+								"new":      "p680501254856-9opkuo@gcp-sa-cloud-sql.iam.gserviceaccount.com",
+								"old":      "p680501254856-9opkuo@gcp-sa-cloud-sql.iam.gserviceaccount.com",
+							},
+							"settings.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "1",
+							},
+							"settings.0.%": {
+								"computed": false,
+								"new":      "17",
+								"old":      "17",
+							},
+							"settings.0.activation_policy": {
+								"computed": false,
+								"new":      "ALWAYS",
+								"old":      "ALWAYS",
+							},
+							"settings.0.availability_type": {
+								"computed": false,
+								"new":      "ZONAL",
+								"old":      "ZONAL",
+							},
+							"settings.0.backup_configuration.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "1",
+							},
+							"settings.0.backup_configuration.0.%": {
+								"computed": false,
+								"new":      "7",
+								"old":      "7",
+							},
+							"settings.0.backup_configuration.0.backup_retention_settings.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "1",
+							},
+							"settings.0.backup_configuration.0.backup_retention_settings.0.%": {
+								"computed": false,
+								"new":      "2",
+								"old":      "2",
+							},
+							"settings.0.backup_configuration.0.backup_retention_settings.0.retained_backups": {
+								"computed": false,
+								"new":      "7",
+								"old":      "7",
+							},
+							"settings.0.backup_configuration.0.backup_retention_settings.0.retention_unit": {
+								"computed": false,
+								"new":      "COUNT",
+								"old":      "COUNT",
+							},
+							"settings.0.backup_configuration.0.binary_log_enabled": {
+								"computed": false,
+								"new":      "false",
+								"old":      "false",
+							},
+							"settings.0.backup_configuration.0.enabled": {
+								"computed": false,
+								"new":      "false",
+								"old":      "false",
+							},
+							"settings.0.backup_configuration.0.location": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.backup_configuration.0.point_in_time_recovery_enabled": {
+								"computed": false,
+								"new":      "false",
+								"old":      "false",
+							},
+							"settings.0.backup_configuration.0.start_time": {
+								"computed": false,
+								"new":      "03:00",
+								"old":      "03:00",
+							},
+							"settings.0.backup_configuration.0.transaction_log_retention_days": {
+								"computed": false,
+								"new":      "7",
+								"old":      "7",
+							},
+							"settings.0.collation": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.database_flags.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "0",
+							},
+							"settings.0.disk_autoresize": {
+								"computed": false,
+								"new":      "true",
+								"old":      "true",
+							},
+							"settings.0.disk_autoresize_limit": {
+								"computed": false,
+								"new":      "0",
+								"old":      "0",
+							},
+							"settings.0.disk_size": {
+								"computed": false,
+								"new":      "10",
+								"old":      "10",
+							},
+							"settings.0.disk_type": {
+								"computed": false,
+								"new":      "PD_SSD",
+								"old":      "PD_SSD",
+							},
+							"settings.0.insights_config.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "0",
+							},
+							"settings.0.ip_configuration.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "1",
+							},
+							"settings.0.ip_configuration.0.%": {
+								"computed": false,
+								"new":      "5",
+								"old":      "5",
+							},
+							"settings.0.ip_configuration.0.allocated_ip_range": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.ip_configuration.0.authorized_networks.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "0",
+							},
+							"settings.0.ip_configuration.0.ipv4_enabled": {
+								"computed": false,
+								"new":      "false",
+								"old":      "false",
+							},
+							"settings.0.ip_configuration.0.private_network": {
+								"computed": false,
+								"new":      "projects/airline1-sabre-wolverine/global/networks/default",
+								"old":      "projects/airline1-sabre-wolverine/global/networks/default",
+							},
+							"settings.0.ip_configuration.0.require_ssl": {
+								"computed": false,
+								"new":      "false",
+								"old":      "false",
+							},
+							"settings.0.location_preference.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "1",
+							},
+							"settings.0.location_preference.0.%": {
+								"computed": false,
+								"new":      "2",
+								"old":      "2",
+							},
+							"settings.0.location_preference.0.follow_gae_application": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.location_preference.0.zone": {
+								"computed": false,
+								"new":      "us-central1-f",
+								"old":      "us-central1-f",
+							},
+							"settings.0.maintenance_window.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "0",
+							},
+							"settings.0.pricing_plan": {
+								"computed": false,
+								"new":      "PER_USE",
+								"old":      "PER_USE",
+							},
+							"settings.0.tier": {
+								"computed": false,
+								"new":      "db-f1-micro",
+								"old":      "db-f1-micro",
+							},
+							"settings.0.user_labels.%": {
+								"computed": false,
+								"new":      "8",
+								"old":      "0",
+							},
+							"settings.0.user_labels.application_division": {
+								"computed": false,
+								"new":      "pci",
+								"old":      "",
+							},
+							"settings.0.user_labels.application_name": {
+								"computed": false,
+								"new":      "demo",
+								"old":      "",
+							},
+							"settings.0.user_labels.application_role": {
+								"computed": false,
+								"new":      "app",
+								"old":      "",
+							},
+							"settings.0.user_labels.au": {
+								"computed": false,
+								"new":      "0223092",
+								"old":      "",
+							},
+							"settings.0.user_labels.created": {
+								"computed": false,
+								"new":      "20211122",
+								"old":      "",
+							},
+							"settings.0.user_labels.environment": {
+								"computed": false,
+								"new":      "nonprod",
+								"old":      "",
+							},
+							"settings.0.user_labels.gcp_region": {
+								"computed": false,
+								"new":      "us",
+								"old":      "",
+							},
+							"settings.0.user_labels.owner": {
+								"computed": false,
+								"new":      "hybridenv",
+								"old":      "",
+							},
+							"settings.0.version": {
+								"computed": false,
+								"new":      "1",
+								"old":      "1",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "1.1.2"
+
+variables = {}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

@@ -1,0 +1,191 @@
+import "strings"
+
+providers = {
+	"google": {
+		"alias": "",
+		"config": {
+			"project": {
+				"constant_value": "airline1-sabre-wolverine",
+			},
+		},
+		"module_address":      "",
+		"name":                "google",
+		"provider_config_key": "google",
+		"version_constraint":  "",
+	},
+}
+
+resources = {
+	"data.google_kms_crypto_key.nav-key13": {
+		"address": "data.google_kms_crypto_key.nav-key13",
+		"config": {
+			"key_ring": {
+				"references": [
+					"data.google_kms_key_ring.keyring1.id",
+					"data.google_kms_key_ring.keyring1",
+				],
+			},
+			"name": {
+				"constant_value": "wf-us-prod-kms-app01-res0501",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "data",
+		"module_address":      "",
+		"name":                "nav-key13",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_kms_crypto_key",
+	},
+	"data.google_kms_crypto_key.nav-key23": {
+		"address": "data.google_kms_crypto_key.nav-key23",
+		"config": {
+			"key_ring": {
+				"references": [
+					"data.google_kms_key_ring.keyring2.id",
+					"data.google_kms_key_ring.keyring2",
+				],
+			},
+			"name": {
+				"constant_value": "wf-us-prod-kms-app01-res0601",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "data",
+		"module_address":      "",
+		"name":                "nav-key23",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_kms_crypto_key",
+	},
+	"data.google_kms_key_ring.keyring1": {
+		"address": "data.google_kms_key_ring.keyring1",
+		"config": {
+			"location": {
+				"constant_value": "us-central1",
+			},
+			"name": {
+				"constant_value": "wf-us-prod-kms-app01-res05",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "data",
+		"module_address":      "",
+		"name":                "keyring1",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_kms_key_ring",
+	},
+	"data.google_kms_key_ring.keyring2": {
+		"address": "data.google_kms_key_ring.keyring2",
+		"config": {
+			"location": {
+				"constant_value": "us-east1",
+			},
+			"name": {
+				"constant_value": "wf-us-prod-kms-app01-res06",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "data",
+		"module_address":      "",
+		"name":                "keyring2",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_kms_key_ring",
+	},
+	"google_secret_manager_secret.secret-basic": {
+		"address": "google_secret_manager_secret.secret-basic",
+		"config": {
+			"labels": {
+				"constant_value": {
+					"application_division": "pci",
+					"application_name":     "demo",
+					"application_role":     "app",
+					"au":                   "0223092",
+					"created":              "20211122",
+					"environment":          "nonprod",
+					"gcp_region":           "us",
+					"owner":                "hybridenv",
+				},
+			},
+			"replication": [
+				{
+					"user_managed": [
+						{
+							"replicas": [
+								{
+									"customer_managed_encryption": [
+										{
+											"kms_key_name": {
+												"references": [
+													"data.google_kms_crypto_key.nav-key13.id",
+													"data.google_kms_crypto_key.nav-key13",
+												],
+											},
+										},
+									],
+									"location": {
+										"constant_value": "us-central1",
+									},
+								},
+								{
+									"customer_managed_encryption": [
+										{
+											"kms_key_name": {
+												"references": [
+													"data.google_kms_crypto_key.nav-key23.id",
+													"data.google_kms_crypto_key.nav-key23",
+												],
+											},
+										},
+									],
+									"location": {
+										"constant_value": "us-east1",
+									},
+								},
+							],
+						},
+					],
+				},
+			],
+			"secret_id": {
+				"constant_value": "wf-us-prod-sm-app01-sm01",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "secret-basic",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_secret_manager_secret",
+	},
+}
+
+provisioners = {}
+
+variables = {}
+
+outputs = {}
+
+module_calls = {}
+
+strip_index = func(addr) {
+	s = strings.split(addr, ".")
+	for s as i, v {
+		s[i] = strings.split(v, "[")[0]
+	}
+
+	return strings.join(s, ".")
+}

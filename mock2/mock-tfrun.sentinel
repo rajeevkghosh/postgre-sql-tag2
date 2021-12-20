@@ -1,0 +1,37 @@
+id = "run-JkqEiUYqDWjZ2Dms"
+created_at = "2021-12-16T16:12:38.036Z"
+message = "Triggered via UI"
+commit_sha = "b65c0cbbc73d944da79913db9aff11f013dd7c69"
+speculative = false
+is_destroy = false
+refresh = true
+refresh_only = false
+replace_addrs = null
+target_addrs = null
+
+variables = {
+	"GOOGLE_CREDENTIALS": {
+		"category":  "env",
+		"sensitive": true,
+	},
+}
+
+organization = {
+	"name": "ashwinkumarnaik91",
+}
+
+workspace = {
+	"auto_apply":  false,
+	"created_at":  "2021-12-08T09:10:58.515Z",
+	"description": null,
+	"id":          "ws-8Hiijzw6UC6jjFSd",
+	"name":        "Rajeev-Secret-Manager-TF-code-UPDATED",
+	"tags":        [],
+	"vcs_repo": {
+		"branch":             "",
+		"display_identifier": "rajeevkghosh/Secret-Manager-TF-code-UPDATED",
+		"identifier":         "rajeevkghosh/Secret-Manager-TF-code-UPDATED",
+		"ingress_submodules": false,
+	},
+	"working_directory": "",
+}
