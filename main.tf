@@ -1,16 +1,19 @@
 provider "google" {
   project = "airline1-sabre-wolverine"
+  #credentials = file ("../airline1-sabre-wolverine-a3e5fdad24ee.json")
 
 }
 provider "google-beta" {
   project = "airline1-sabre-wolverine"
+  #credentials = file ("../airline1-sabre-wolverine-a3e5fdad24ee.json")
 
 }
+
 
 resource "google_sql_database_instance" "master2" {
   provider            = google-beta
   project             = "airline1-sabre-wolverine"
-  name                = "wf-us-prod-sql-app01-instance01"
+  name                = "wf-us-prod-sql-app01-instance07"
   database_version    = "POSTGRES_11"
   region              = "us-central1"
   deletion_protection = false
@@ -21,6 +24,10 @@ resource "google_sql_database_instance" "master2" {
     # Second-generation instance tiers are based on the machine
     # type. See argument reference below.
     tier = "db-f1-micro"
+      ip_configuration {
+      ipv4_enabled    = false
+      private_network = "projects/airline1-sabre-wolverine/global/networks/default"
+    }
 
   }
 }
