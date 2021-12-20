@@ -13,7 +13,7 @@ provider "google-beta" {
 resource "google_sql_database_instance" "master2" {
   provider            = google-beta
   project             = "airline1-sabre-wolverine"
-  name                = "wf-us-prod-sql-app01-instance07"
+  name                = "wf-us-prod-sql-app01-instance08"
   database_version    = "POSTGRES_11"
   region              = "us-central1"
   deletion_protection = false
