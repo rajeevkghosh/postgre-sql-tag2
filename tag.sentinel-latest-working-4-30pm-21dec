@@ -52,45 +52,54 @@ for resourceTypesMap as rt, _ {
 	}
 }
 
-check_for_label_value_matches = func(address, rc, label_key) {
+check_for_label_value_matches = func(address,rc,label_arr,label_key) {
+	#print(label_arr)
+	/*for label_arr as larr, rt {
+		#print(keys(mandatory_labels))
+		print(mandatory_labels[rt])
+	}*/
 	violations_value = {}
 	label_chk2 = plan.evaluate_attribute(rc.change.after, label_key)
+	#print(label_chk2)
 	for label_chk2 as lc, hk {
-		#print(hk)
+		//print(lc)
+		#print(types.type_of(mandatory_labels[lc]))
+		print(hk)
 		if lc != "created" {
-			if hk not in plan.to_string(mandatory_labels[lc]) {
-				print("no match")
-				violations_value[address] = rc
-			}
-
+		if hk in  plan.to_string(mandatory_labels[lc]) {
+			print("MATCH")
+		} else {
+			print("no match")
+			violations_value[address] = rc
 		}
+
 	}
-	return (violations_value)
+	}
+    print(violations_value)
+    return(violations_value)
 }
 
 check_for_labels = func(address, rc, label_key) {
 	violations = {}
 	label_arr = []
 	label_chk = plan.evaluate_attribute(rc.change.after, label_key)
-	is_label_undefined = rule { types.type_of(label_chk) is "undefined" }
-	if is_label_undefined {
-		violations[address] = rc
-	} else {
-		for label_chk as lp, rt {
-			append(label_arr, lp)
-		}
-		for keys(mandatory_labels) as ml, rt {
-			if rt not in label_arr {
-				violations[address] = rc
-			}
-		}
-		if length(violations) == 0 {
-			label_value_matches = check_for_label_value_matches(address, rc, label_key)
-			if length(label_value_matches) > 0 {
-				violations[address] = rc
-			}
-		}
+	for label_chk as lp, rt {
+		append(label_arr, lp)
 	}
+	for keys(mandatory_labels) as ml, rt {
+		if rt not in label_arr {
+			print ("VIOLATIONS")
+			violations[address] = rc
+	}
+	}
+#	print(length(violations))
+	if length(violations) == 0 {
+		label_value_matches = check_for_label_value_matches (address,rc,label_arr,label_key)
+		#print(label_value_matches)
+		if length(label_value_matches) > 0 {
+			violations[address] = rc
+		}
+	} 
 
 	return violations
 }
