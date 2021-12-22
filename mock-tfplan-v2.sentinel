@@ -1,113 +1,62 @@
-terraform_version = "1.1.2"
+terraform_version = "1.0.11"
 
 planned_values = {
 	"outputs": {},
 	"resources": {
-		"google_sql_database_instance.master2": {
-			"address":        "google_sql_database_instance.master2",
+		"google_secret_manager_secret.secret-basic": {
+			"address":        "google_secret_manager_secret.secret-basic",
 			"depends_on":     [],
 			"deposed_key":    "",
 			"index":          null,
 			"mode":           "managed",
 			"module_address": "",
-			"name":           "master2",
-			"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+			"name":           "secret-basic",
+			"provider_name":  "registry.terraform.io/hashicorp/google",
 			"tainted":        false,
-			"type":           "google_sql_database_instance",
+			"type":           "google_secret_manager_secret",
 			"values": {
-				"clone":               [],
-				"connection_name":     "airline1-sabre-wolverine:us-central1:wf-us-prod-sql-app01-instance08",
-				"database_version":    "POSTGRES_11",
-				"deletion_protection": false,
-				"encryption_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
-				"first_ip_address":    "10.63.129.7",
-				"id":                  "wf-us-prod-sql-app01-instance08",
-				"ip_address": [
+				"labels": {
+					"application_division": "pci",
+					"application_name":     "demo",
+					"application_role":     "app",
+					"au":                   "0223092",
+					"created":              "20211122",
+					"environment":          "nonprod",
+					"gcp_region":           "us",
+					"owner":                "hybridenv",
+				},
+				"replication": [
 					{
-						"ip_address":     "10.63.129.7",
-						"time_to_retire": "",
-						"type":           "PRIVATE",
-					},
-				],
-				"master_instance_name":   "",
-				"name":                   "wf-us-prod-sql-app01-instance08",
-				"private_ip_address":     "10.63.129.7",
-				"project":                "airline1-sabre-wolverine",
-				"public_ip_address":      "",
-				"region":                 "us-central1",
-				"replica_configuration":  [],
-				"restore_backup_context": [],
-				"root_password":          "REDACTED_SENSITIVE",
-				"self_link":              "https://sqladmin.googleapis.com/sql/v1beta4/projects/airline1-sabre-wolverine/instances/wf-us-prod-sql-app01-instance08",
-				"server_ca_cert": [
-					{
-						"cert":             "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyQzMWU2\nZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjExMjIwMTA1OTUxWhcNMzExMjE4MTEwMDUxWjB3MS0wKwYD\nVQQuEyQzMWU2ZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCz6rFrs0pai1FAuGsvinN7IipEVAsEi0mw5DHXSE9+FZrAkbT6Ci/BlnbIpN4B\n8OXx1FZLyBmyJ784LYBuMmk17rm8oi3XfvZJtWx+6Oh0yyTE75LRrOKIRqGSjMJs\nyciuCQ1XIiseANzzmNhGTggpjA7hYih3cvFJ/JsyWDoaAoZnWhgDPAM5s22U+1a9\nNX+MQnP5HYG5p9wSk5TNWxjPdV7JcYOwvumpHd05WUgUdoM9q4PkrmHPmT/mBWIq\nE1dShJdsMa7NoBRqBwGuIDKkJBTvLyW/L0FVv1+K6+r3cnxMT9VYFcp8bDHtgbSu\nB4NoPlGUiDwqdfska/NQGCnxAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAHfJseuDatDq6bHKt8CAJJlTgcpoAImkKEUrZx+n\nDW0lNB0oRg+3Q8ZjVqQMCrMaHYgCtjtAwRILzgCr6WUnmWETMg55LG31wVMf8r1j\nHjJ6wbM3Sf5AUcDjYurqxwLHGgAlfjZYSfwzp2P4b7g71AZWlWjAmyoZDqLDHCTQ\nmheZNsE6gau2hHSqE6WeTtwiOqPkAPlHkgzMIiP0NeMRnIOpecrlDLctU/uQlq97\nz7yIEiUDcYnacK6ABkjpyeATXcV8t076h7X77VGb5HYcZB4j+vXUTzQuw9HSGOKA\nXICaFHmjLVzZGavaZFinQSajH7baDMAmoOMCkIiueBhaHBE=\n-----END CERTIFICATE-----",
-						"common_name":      "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=31e6ddbc-a9f9-44a5-86d8-6ba1407ebe2b",
-						"create_time":      "2021-12-20T10:59:51.009Z",
-						"expiration_time":  "2031-12-18T11:00:51.009Z",
-						"sha1_fingerprint": "fe814bb50a7e765e9edc900eb8966551227b6e7c",
-					},
-				],
-				"service_account_email_address": "p680501254856-9opkuo@gcp-sa-cloud-sql.iam.gserviceaccount.com",
-				"settings": [
-					{
-						"activation_policy": "ALWAYS",
-						"availability_type": "ZONAL",
-						"backup_configuration": [
+						"automatic": null,
+						"user_managed": [
 							{
-								"backup_retention_settings": [
+								"replicas": [
 									{
-										"retained_backups": 7,
-										"retention_unit":   "COUNT",
+										"customer_managed_encryption": [
+											{
+												"kms_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
+											},
+										],
+										"location": "us-central1",
+									},
+									{
+										"customer_managed_encryption": [
+											{
+												"kms_key_name": "projects/airline1-sabre-wolverine/locations/us-east1/keyRings/wf-us-prod-kms-app01-res06/cryptoKeys/wf-us-prod-kms-app01-res0601",
+											},
+										],
+										"location": "us-east1",
 									},
 								],
-								"binary_log_enabled":             false,
-								"enabled":                        false,
-								"location":                       "",
-								"point_in_time_recovery_enabled": false,
-								"start_time":                     "03:00",
-								"transaction_log_retention_days": 7,
 							},
 						],
-						"collation":             "",
-						"database_flags":        [],
-						"disk_autoresize":       true,
-						"disk_autoresize_limit": 0,
-						"disk_size":             10,
-						"disk_type":             "PD_SSD",
-						"insights_config":       [],
-						"ip_configuration": [
-							{
-								"allocated_ip_range":  "",
-								"authorized_networks": [],
-								"ipv4_enabled":        false,
-								"private_network":     "projects/airline1-sabre-wolverine/global/networks/default",
-								"require_ssl":         false,
-							},
-						],
-						"location_preference": [
-							{
-								"follow_gae_application": "",
-								"zone": "us-central1-f",
-							},
-						],
-						"maintenance_window": [],
-						"pricing_plan":       "PER_USE",
-						"tier":               "db-f1-micro",
-						"user_labels": {
-							"application_division": "pci",
-							"application_name":     "demo",
-							"application_role":     "app",
-							"au":                   "0223092",
-							"created":              "20211122",
-							"environment":          "nonprod",
-							"gcp_region":           "us",
-							"owner":                "hybridenv",
-						},
-						"version": 1,
 					},
 				],
-				"timeouts": null,
+				"rotation":  [],
+				"secret_id": "wf-us-prod-sm-app01-sm01",
+				"timeouts":  null,
+				"topics":    [],
+				"ttl":       null,
 			},
 		},
 	},
@@ -116,202 +65,95 @@ planned_values = {
 variables = {}
 
 resource_changes = {
-	"google_sql_database_instance.master2": {
-		"address": "google_sql_database_instance.master2",
+	"google_secret_manager_secret.secret-basic": {
+		"address": "google_secret_manager_secret.secret-basic",
 		"change": {
 			"actions": [
-				"update",
+				"create",
 			],
 			"after": {
-				"clone":               [],
-				"connection_name":     "airline1-sabre-wolverine:us-central1:wf-us-prod-sql-app01-instance08",
-				"database_version":    "POSTGRES_11",
-				"deletion_protection": false,
-				"encryption_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
-				"first_ip_address":    "10.63.129.7",
-				"id":                  "wf-us-prod-sql-app01-instance08",
-				"ip_address": [
+				"labels": {
+					"application_division": "pci",
+					"application_name":     "demo",
+					"application_role":     "app",
+					"au":                   "0223092",
+					"created":              "20211122",
+					"environment":          "nonprod",
+					"gcp_region":           "us",
+					"owner":                "hybridenv",
+				},
+				"replication": [
 					{
-						"ip_address":     "10.63.129.7",
-						"time_to_retire": "",
-						"type":           "PRIVATE",
-					},
-				],
-				"master_instance_name":   "",
-				"name":                   "wf-us-prod-sql-app01-instance08",
-				"private_ip_address":     "10.63.129.7",
-				"project":                "airline1-sabre-wolverine",
-				"public_ip_address":      "",
-				"region":                 "us-central1",
-				"replica_configuration":  [],
-				"restore_backup_context": [],
-				"root_password":          "REDACTED_SENSITIVE",
-				"self_link":              "https://sqladmin.googleapis.com/sql/v1beta4/projects/airline1-sabre-wolverine/instances/wf-us-prod-sql-app01-instance08",
-				"server_ca_cert": [
-					{
-						"cert":             "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyQzMWU2\nZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjExMjIwMTA1OTUxWhcNMzExMjE4MTEwMDUxWjB3MS0wKwYD\nVQQuEyQzMWU2ZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCz6rFrs0pai1FAuGsvinN7IipEVAsEi0mw5DHXSE9+FZrAkbT6Ci/BlnbIpN4B\n8OXx1FZLyBmyJ784LYBuMmk17rm8oi3XfvZJtWx+6Oh0yyTE75LRrOKIRqGSjMJs\nyciuCQ1XIiseANzzmNhGTggpjA7hYih3cvFJ/JsyWDoaAoZnWhgDPAM5s22U+1a9\nNX+MQnP5HYG5p9wSk5TNWxjPdV7JcYOwvumpHd05WUgUdoM9q4PkrmHPmT/mBWIq\nE1dShJdsMa7NoBRqBwGuIDKkJBTvLyW/L0FVv1+K6+r3cnxMT9VYFcp8bDHtgbSu\nB4NoPlGUiDwqdfska/NQGCnxAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAHfJseuDatDq6bHKt8CAJJlTgcpoAImkKEUrZx+n\nDW0lNB0oRg+3Q8ZjVqQMCrMaHYgCtjtAwRILzgCr6WUnmWETMg55LG31wVMf8r1j\nHjJ6wbM3Sf5AUcDjYurqxwLHGgAlfjZYSfwzp2P4b7g71AZWlWjAmyoZDqLDHCTQ\nmheZNsE6gau2hHSqE6WeTtwiOqPkAPlHkgzMIiP0NeMRnIOpecrlDLctU/uQlq97\nz7yIEiUDcYnacK6ABkjpyeATXcV8t076h7X77VGb5HYcZB4j+vXUTzQuw9HSGOKA\nXICaFHmjLVzZGavaZFinQSajH7baDMAmoOMCkIiueBhaHBE=\n-----END CERTIFICATE-----",
-						"common_name":      "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=31e6ddbc-a9f9-44a5-86d8-6ba1407ebe2b",
-						"create_time":      "2021-12-20T10:59:51.009Z",
-						"expiration_time":  "2031-12-18T11:00:51.009Z",
-						"sha1_fingerprint": "fe814bb50a7e765e9edc900eb8966551227b6e7c",
-					},
-				],
-				"service_account_email_address": "p680501254856-9opkuo@gcp-sa-cloud-sql.iam.gserviceaccount.com",
-				"settings": [
-					{
-						"activation_policy": "ALWAYS",
-						"availability_type": "ZONAL",
-						"backup_configuration": [
+						"automatic": null,
+						"user_managed": [
 							{
-								"backup_retention_settings": [
+								"replicas": [
 									{
-										"retained_backups": 7,
-										"retention_unit":   "COUNT",
+										"customer_managed_encryption": [
+											{
+												"kms_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
+											},
+										],
+										"location": "us-central1",
+									},
+									{
+										"customer_managed_encryption": [
+											{
+												"kms_key_name": "projects/airline1-sabre-wolverine/locations/us-east1/keyRings/wf-us-prod-kms-app01-res06/cryptoKeys/wf-us-prod-kms-app01-res0601",
+											},
+										],
+										"location": "us-east1",
 									},
 								],
-								"binary_log_enabled":             false,
-								"enabled":                        false,
-								"location":                       "",
-								"point_in_time_recovery_enabled": false,
-								"start_time":                     "03:00",
-								"transaction_log_retention_days": 7,
 							},
 						],
-						"collation":             "",
-						"database_flags":        [],
-						"disk_autoresize":       true,
-						"disk_autoresize_limit": 0,
-						"disk_size":             10,
-						"disk_type":             "PD_SSD",
-						"insights_config":       [],
-						"ip_configuration": [
-							{
-								"allocated_ip_range":  "",
-								"authorized_networks": [],
-								"ipv4_enabled":        false,
-								"private_network":     "projects/airline1-sabre-wolverine/global/networks/default",
-								"require_ssl":         false,
-							},
-						],
-						"location_preference": [
-							{
-								"follow_gae_application": "",
-								"zone": "us-central1-f",
-							},
-						],
-						"maintenance_window": [],
-						"pricing_plan":       "PER_USE",
-						"tier":               "db-f1-micro",
-						"user_labels": {
-							"application_division": "pci",
-							"application_name":     "demo",
-							"application_role":     "app",
-							"au":                   "0223092",
-							"created":              "20211122",
-							"environment":          "nonprod",
-							"gcp_region":           "us",
-							"owner":                "hybridenv",
-						},
-						"version": 1,
 					},
 				],
-				"timeouts": null,
+				"rotation":  [],
+				"secret_id": "wf-us-prod-sm-app01-sm01",
+				"timeouts":  null,
+				"topics":    [],
+				"ttl":       null,
 			},
-			"after_unknown": {},
-			"before": {
-				"clone":               [],
-				"connection_name":     "airline1-sabre-wolverine:us-central1:wf-us-prod-sql-app01-instance08",
-				"database_version":    "POSTGRES_11",
-				"deletion_protection": false,
-				"encryption_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
-				"first_ip_address":    "10.63.129.7",
-				"id":                  "wf-us-prod-sql-app01-instance08",
-				"ip_address": [
+			"after_unknown": {
+				"create_time": true,
+				"expire_time": true,
+				"id":          true,
+				"labels":      {},
+				"name":        true,
+				"project":     true,
+				"replication": [
 					{
-						"ip_address":     "10.63.129.7",
-						"time_to_retire": "",
-						"type":           "PRIVATE",
-					},
-				],
-				"master_instance_name":   "",
-				"name":                   "wf-us-prod-sql-app01-instance08",
-				"private_ip_address":     "10.63.129.7",
-				"project":                "airline1-sabre-wolverine",
-				"public_ip_address":      "",
-				"region":                 "us-central1",
-				"replica_configuration":  [],
-				"restore_backup_context": [],
-				"root_password":          "REDACTED_SENSITIVE",
-				"self_link":              "https://sqladmin.googleapis.com/sql/v1beta4/projects/airline1-sabre-wolverine/instances/wf-us-prod-sql-app01-instance08",
-				"server_ca_cert": [
-					{
-						"cert":             "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyQzMWU2\nZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjExMjIwMTA1OTUxWhcNMzExMjE4MTEwMDUxWjB3MS0wKwYD\nVQQuEyQzMWU2ZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCz6rFrs0pai1FAuGsvinN7IipEVAsEi0mw5DHXSE9+FZrAkbT6Ci/BlnbIpN4B\n8OXx1FZLyBmyJ784LYBuMmk17rm8oi3XfvZJtWx+6Oh0yyTE75LRrOKIRqGSjMJs\nyciuCQ1XIiseANzzmNhGTggpjA7hYih3cvFJ/JsyWDoaAoZnWhgDPAM5s22U+1a9\nNX+MQnP5HYG5p9wSk5TNWxjPdV7JcYOwvumpHd05WUgUdoM9q4PkrmHPmT/mBWIq\nE1dShJdsMa7NoBRqBwGuIDKkJBTvLyW/L0FVv1+K6+r3cnxMT9VYFcp8bDHtgbSu\nB4NoPlGUiDwqdfska/NQGCnxAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAHfJseuDatDq6bHKt8CAJJlTgcpoAImkKEUrZx+n\nDW0lNB0oRg+3Q8ZjVqQMCrMaHYgCtjtAwRILzgCr6WUnmWETMg55LG31wVMf8r1j\nHjJ6wbM3Sf5AUcDjYurqxwLHGgAlfjZYSfwzp2P4b7g71AZWlWjAmyoZDqLDHCTQ\nmheZNsE6gau2hHSqE6WeTtwiOqPkAPlHkgzMIiP0NeMRnIOpecrlDLctU/uQlq97\nz7yIEiUDcYnacK6ABkjpyeATXcV8t076h7X77VGb5HYcZB4j+vXUTzQuw9HSGOKA\nXICaFHmjLVzZGavaZFinQSajH7baDMAmoOMCkIiueBhaHBE=\n-----END CERTIFICATE-----",
-						"common_name":      "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=31e6ddbc-a9f9-44a5-86d8-6ba1407ebe2b",
-						"create_time":      "2021-12-20T10:59:51.009Z",
-						"expiration_time":  "2031-12-18T11:00:51.009Z",
-						"sha1_fingerprint": "fe814bb50a7e765e9edc900eb8966551227b6e7c",
-					},
-				],
-				"service_account_email_address": "p680501254856-9opkuo@gcp-sa-cloud-sql.iam.gserviceaccount.com",
-				"settings": [
-					{
-						"activation_policy": "ALWAYS",
-						"availability_type": "ZONAL",
-						"backup_configuration": [
+						"user_managed": [
 							{
-								"backup_retention_settings": [
+								"replicas": [
 									{
-										"retained_backups": 7,
-										"retention_unit":   "COUNT",
+										"customer_managed_encryption": [
+											{},
+										],
+									},
+									{
+										"customer_managed_encryption": [
+											{},
+										],
 									},
 								],
-								"binary_log_enabled":             false,
-								"enabled":                        false,
-								"location":                       "",
-								"point_in_time_recovery_enabled": false,
-								"start_time":                     "03:00",
-								"transaction_log_retention_days": 7,
 							},
 						],
-						"collation":             "",
-						"database_flags":        [],
-						"disk_autoresize":       true,
-						"disk_autoresize_limit": 0,
-						"disk_size":             10,
-						"disk_type":             "PD_SSD",
-						"insights_config":       [],
-						"ip_configuration": [
-							{
-								"allocated_ip_range":  "",
-								"authorized_networks": [],
-								"ipv4_enabled":        false,
-								"private_network":     "projects/airline1-sabre-wolverine/global/networks/default",
-								"require_ssl":         false,
-							},
-						],
-						"location_preference": [
-							{
-								"follow_gae_application": "",
-								"zone": "us-central1-f",
-							},
-						],
-						"maintenance_window": [],
-						"pricing_plan":       "PER_USE",
-						"tier":               "db-f1-micro",
-						"user_labels":        {},
-						"version":            1,
 					},
 				],
-				"timeouts": null,
+				"rotation": [],
+				"topics":   [],
 			},
+			"before": null,
 		},
 		"deposed":        "",
 		"index":          null,
 		"mode":           "managed",
 		"module_address": "",
-		"name":           "master2",
-		"provider_name":  "registry.terraform.io/hashicorp/google-beta",
-		"type":           "google_sql_database_instance",
+		"name":           "secret-basic",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"type":           "google_secret_manager_secret",
 	},
 }
 
@@ -328,84 +170,81 @@ raw = {
 				},
 				"name": "google",
 			},
-			"google-beta": {
-				"expressions": {
-					"project": {
-						"constant_value": "airline1-sabre-wolverine",
-					},
-				},
-				"name": "google-beta",
-			},
 		},
 		"root_module": {
 			"resources": [
 				{
-					"address": "google_sql_database_instance.master2",
+					"address": "google_secret_manager_secret.secret-basic",
 					"expressions": {
-						"database_version": {
-							"constant_value": "POSTGRES_11",
+						"labels": {
+							"constant_value": {
+								"application_division": "pci",
+								"application_name":     "demo",
+								"application_role":     "app",
+								"au":                   "0223092",
+								"created":              "20211122",
+								"environment":          "nonprod",
+								"gcp_region":           "us",
+								"owner":                "hybridenv",
+							},
 						},
-						"deletion_protection": {
-							"constant_value": false,
-						},
-						"encryption_key_name": {
-							"references": [
-								"data.google_kms_crypto_key.crypto_key13.id",
-								"data.google_kms_crypto_key.crypto_key13",
-							],
-						},
-						"name": {
-							"constant_value": "wf-us-prod-sql-app01-instance08",
-						},
-						"project": {
-							"constant_value": "airline1-sabre-wolverine",
-						},
-						"region": {
-							"constant_value": "us-central1",
-						},
-						"settings": [
+						"replication": [
 							{
-								"ip_configuration": [
+								"user_managed": [
 									{
-										"ipv4_enabled": {
-											"constant_value": false,
-										},
-										"private_network": {
-											"constant_value": "projects/airline1-sabre-wolverine/global/networks/default",
-										},
+										"replicas": [
+											{
+												"customer_managed_encryption": [
+													{
+														"kms_key_name": {
+															"references": [
+																"data.google_kms_crypto_key.nav-key13.id",
+																"data.google_kms_crypto_key.nav-key13",
+															],
+														},
+													},
+												],
+												"location": {
+													"constant_value": "us-central1",
+												},
+											},
+											{
+												"customer_managed_encryption": [
+													{
+														"kms_key_name": {
+															"references": [
+																"data.google_kms_crypto_key.nav-key23.id",
+																"data.google_kms_crypto_key.nav-key23",
+															],
+														},
+													},
+												],
+												"location": {
+													"constant_value": "us-east1",
+												},
+											},
+										],
 									},
 								],
-								"tier": {
-									"constant_value": "db-f1-micro",
-								},
-								"user_labels": {
-									"constant_value": {
-										"application_division": "pci",
-										"application_name":     "demo",
-										"application_role":     "app",
-										"au":                   "0223092",
-										"created":              "20211122",
-										"environment":          "nonprod",
-										"gcp_region":           "us",
-										"owner":                "hybridenv",
-									},
-								},
 							},
 						],
+						"secret_id": {
+							"constant_value": "wf-us-prod-sm-app01-sm01",
+						},
 					},
 					"mode":                "managed",
-					"name":                "master2",
-					"provider_config_key": "google-beta",
+					"name":                "secret-basic",
+					"provider_config_key": "google",
 					"schema_version":      0,
-					"type":                "google_sql_database_instance",
+					"type":                "google_secret_manager_secret",
 				},
 				{
-					"address": "data.google_kms_crypto_key.crypto_key13",
+					"address": "data.google_kms_crypto_key.nav-key13",
 					"expressions": {
 						"key_ring": {
 							"references": [
-								"data.google_kms_key_ring.key_ring.id",
-								"data.google_kms_key_ring.key_ring",
+								"data.google_kms_key_ring.keyring1.id",
+								"data.google_kms_key_ring.keyring1",
 							],
 						},
 						"name": {
@@ -413,13 +252,32 @@ raw = {
 						},
 					},
 					"mode":                "data",
-					"name":                "crypto_key13",
+					"name":                "nav-key13",
 					"provider_config_key": "google",
 					"schema_version":      0,
 					"type":                "google_kms_crypto_key",
 				},
 				{
-					"address": "data.google_kms_key_ring.key_ring",
+					"address": "data.google_kms_crypto_key.nav-key23",
+					"expressions": {
+						"key_ring": {
+							"references": [
+								"data.google_kms_key_ring.keyring2.id",
+								"data.google_kms_key_ring.keyring2",
+							],
+						},
+						"name": {
+							"constant_value": "wf-us-prod-kms-app01-res0601",
+						},
+					},
+					"mode":                "data",
+					"name":                "nav-key23",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_kms_crypto_key",
+				},
+				{
+					"address": "data.google_kms_key_ring.keyring1",
 					"expressions": {
 						"location": {
 							"constant_value": "us-central1",
@@ -429,7 +287,23 @@ raw = {
 						},
 					},
 					"mode":                "data",
-					"name":                "key_ring",
+					"name":                "keyring1",
+					"provider_config_key": "google",
+					"schema_version":      0,
+					"type":                "google_kms_key_ring",
+				},
+				{
+					"address": "data.google_kms_key_ring.keyring2",
+					"expressions": {
+						"location": {
+							"constant_value": "us-east1",
+						},
+						"name": {
+							"constant_value": "wf-us-prod-kms-app01-res06",
+						},
+					},
+					"mode":                "data",
+					"name":                "keyring2",
 					"provider_config_key": "google",
 					"schema_version":      0,
 					"type":                "google_kms_key_ring",
@@ -437,160 +311,100 @@ raw = {
 			],
 		},
 	},
-	"format_version": "1.0",
+	"format_version": "0.2",
 	"planned_values": {
 		"root_module": {
 			"resources": [
 				{
-					"address":        "google_sql_database_instance.master2",
+					"address":        "google_secret_manager_secret.secret-basic",
 					"mode":           "managed",
-					"name":           "master2",
-					"provider_name":  "registry.terraform.io/hashicorp/google-beta",
+					"name":           "secret-basic",
+					"provider_name":  "registry.terraform.io/hashicorp/google",
 					"schema_version": 0,
 					"sensitive_values": {
-						"clone": [],
-						"ip_address": [
-							{},
-						],
-						"replica_configuration":  [],
-						"restore_backup_context": [],
-						"server_ca_cert": [
-							{},
-						],
-						"settings": [
+						"labels": {},
+						"replication": [
 							{
-								"backup_configuration": [
+								"user_managed": [
 									{
-										"backup_retention_settings": [
-											{},
-										],
-									},
-								],
-								"database_flags":  [],
-								"insights_config": [],
-								"ip_configuration": [
-									{
-										"authorized_networks": [],
-									},
-								],
-								"location_preference": [
-									{},
-								],
-								"maintenance_window": [],
-								"user_labels":        {},
-							},
-						],
-					},
-					"type": "google_sql_database_instance",
-					"values": {
-						"clone":               [],
-						"connection_name":     "airline1-sabre-wolverine:us-central1:wf-us-prod-sql-app01-instance08",
-						"database_version":    "POSTGRES_11",
-						"deletion_protection": false,
-						"encryption_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
-						"first_ip_address":    "10.63.129.7",
-						"id":                  "wf-us-prod-sql-app01-instance08",
-						"ip_address": [
-							{
-								"ip_address":     "10.63.129.7",
-								"time_to_retire": "",
-								"type":           "PRIVATE",
-							},
-						],
-						"master_instance_name":   "",
-						"name":                   "wf-us-prod-sql-app01-instance08",
-						"private_ip_address":     "10.63.129.7",
-						"project":                "airline1-sabre-wolverine",
-						"public_ip_address":      "",
-						"region":                 "us-central1",
-						"replica_configuration":  [],
-						"restore_backup_context": [],
-						"root_password":          "REDACTED_SENSITIVE",
-						"self_link":              "https://sqladmin.googleapis.com/sql/v1beta4/projects/airline1-sabre-wolverine/instances/wf-us-prod-sql-app01-instance08",
-						"server_ca_cert": [
-							{
-								"cert":             "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyQzMWU2\nZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjExMjIwMTA1OTUxWhcNMzExMjE4MTEwMDUxWjB3MS0wKwYD\nVQQuEyQzMWU2ZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCz6rFrs0pai1FAuGsvinN7IipEVAsEi0mw5DHXSE9+FZrAkbT6Ci/BlnbIpN4B\n8OXx1FZLyBmyJ784LYBuMmk17rm8oi3XfvZJtWx+6Oh0yyTE75LRrOKIRqGSjMJs\nyciuCQ1XIiseANzzmNhGTggpjA7hYih3cvFJ/JsyWDoaAoZnWhgDPAM5s22U+1a9\nNX+MQnP5HYG5p9wSk5TNWxjPdV7JcYOwvumpHd05WUgUdoM9q4PkrmHPmT/mBWIq\nE1dShJdsMa7NoBRqBwGuIDKkJBTvLyW/L0FVv1+K6+r3cnxMT9VYFcp8bDHtgbSu\nB4NoPlGUiDwqdfska/NQGCnxAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAHfJseuDatDq6bHKt8CAJJlTgcpoAImkKEUrZx+n\nDW0lNB0oRg+3Q8ZjVqQMCrMaHYgCtjtAwRILzgCr6WUnmWETMg55LG31wVMf8r1j\nHjJ6wbM3Sf5AUcDjYurqxwLHGgAlfjZYSfwzp2P4b7g71AZWlWjAmyoZDqLDHCTQ\nmheZNsE6gau2hHSqE6WeTtwiOqPkAPlHkgzMIiP0NeMRnIOpecrlDLctU/uQlq97\nz7yIEiUDcYnacK6ABkjpyeATXcV8t076h7X77VGb5HYcZB4j+vXUTzQuw9HSGOKA\nXICaFHmjLVzZGavaZFinQSajH7baDMAmoOMCkIiueBhaHBE=\n-----END CERTIFICATE-----",
-								"common_name":      "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=31e6ddbc-a9f9-44a5-86d8-6ba1407ebe2b",
-								"create_time":      "2021-12-20T10:59:51.009Z",
-								"expiration_time":  "2031-12-18T11:00:51.009Z",
-								"sha1_fingerprint": "fe814bb50a7e765e9edc900eb8966551227b6e7c",
-							},
-						],
-						"service_account_email_address": "p680501254856-9opkuo@gcp-sa-cloud-sql.iam.gserviceaccount.com",
-						"settings": [
-							{
-								"activation_policy": "ALWAYS",
-								"availability_type": "ZONAL",
-								"backup_configuration": [
-									{
-										"backup_retention_settings": [
+										"replicas": [
 											{
-												"retained_backups": 7,
-												"retention_unit":   "COUNT",
+												"customer_managed_encryption": [
+													{},
+												],
+											},
+											{
+												"customer_managed_encryption": [
+													{},
+												],
 											},
 										],
-										"binary_log_enabled":             false,
-										"enabled":                        false,
-										"location":                       "",
-										"point_in_time_recovery_enabled": false,
-										"start_time":                     "03:00",
-										"transaction_log_retention_days": 7,
 									},
 								],
-								"collation":             "",
-								"database_flags":        [],
-								"disk_autoresize":       true,
-								"disk_autoresize_limit": 0,
-								"disk_size":             10,
-								"disk_type":             "PD_SSD",
-								"insights_config":       [],
-								"ip_configuration": [
-									{
-										"allocated_ip_range":  "",
-										"authorized_networks": [],
-										"ipv4_enabled":        false,
-										"private_network":     "projects/airline1-sabre-wolverine/global/networks/default",
-										"require_ssl":         false,
-									},
-								],
-								"location_preference": [
-									{
-										"follow_gae_application": "",
-										"zone": "us-central1-f",
-									},
-								],
-								"maintenance_window": [],
-								"pricing_plan":       "PER_USE",
-								"tier":               "db-f1-micro",
-								"user_labels": {
-									"application_division": "pci",
-									"application_name":     "demo",
-									"application_role":     "app",
-									"au":                   "0223092",
-									"created":              "20211122",
-									"environment":          "nonprod",
-									"gcp_region":           "us",
-									"owner":                "hybridenv",
-								},
-								"version": 1,
 							},
 						],
-						"timeouts": null,
+						"rotation": [],
+						"topics":   [],
+					},
+					"type": "google_secret_manager_secret",
+					"values": {
+						"labels": {
+							"application_division": "pci",
+							"application_name":     "demo",
+							"application_role":     "app",
+							"au":                   "0223092",
+							"created":              "20211122",
+							"environment":          "nonprod",
+							"gcp_region":           "us",
+							"owner":                "hybridenv",
+						},
+						"replication": [
+							{
+								"automatic": null,
+								"user_managed": [
+									{
+										"replicas": [
+											{
+												"customer_managed_encryption": [
+													{
+														"kms_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
+													},
+												],
+												"location": "us-central1",
+											},
+											{
+												"customer_managed_encryption": [
+													{
+														"kms_key_name": "projects/airline1-sabre-wolverine/locations/us-east1/keyRings/wf-us-prod-kms-app01-res06/cryptoKeys/wf-us-prod-kms-app01-res0601",
+													},
+												],
+												"location": "us-east1",
+											},
+										],
+									},
+								],
+							},
+						],
+						"rotation":  [],
+						"secret_id": "wf-us-prod-sm-app01-sm01",
+						"timeouts":  null,
+						"topics":    [],
+						"ttl":       null,
 					},
 				},
 			],
 		},
 	},
 	"prior_state": {
-		"format_version":    "1.0",
-		"terraform_version": "1.1.2",
+		"format_version":    "0.2",
+		"terraform_version": "1.0.11",
 		"values": {
 			"root_module": {
 				"resources": [
 					{
-						"address":        "data.google_kms_crypto_key.crypto_key13",
+						"address":        "data.google_kms_crypto_key.nav-key13",
 						"mode":           "data",
-						"name":           "crypto_key13",
+						"name":           "nav-key13",
 						"provider_name":  "registry.terraform.io/hashicorp/google",
 						"schema_version": 0,
 						"sensitive_values": {
@@ -628,9 +442,49 @@ raw = {
 						},
 					},
 					{
-						"address":          "data.google_kms_key_ring.key_ring",
+						"address":        "data.google_kms_crypto_key.nav-key23",
+						"mode":           "data",
+						"name":           "nav-key23",
+						"provider_name":  "registry.terraform.io/hashicorp/google",
+						"schema_version": 0,
+						"sensitive_values": {
+							"labels": {},
+							"version_template": [
+								{},
+							],
+						},
+						"type": "google_kms_crypto_key",
+						"values": {
+							"destroy_scheduled_duration": "86400s",
+							"id":          "projects/airline1-sabre-wolverine/locations/us-east1/keyRings/wf-us-prod-kms-app01-res06/cryptoKeys/wf-us-prod-kms-app01-res0601",
+							"import_only": true,
+							"key_ring":    "projects/airline1-sabre-wolverine/locations/us-east1/keyRings/wf-us-prod-kms-app01-res06",
+							"labels": {
+								"application_division": "pci",
+								"application_name":     "demo",
+								"application_role":     "app",
+								"au":                   "0223092",
+								"created":              "20211122",
+								"environment":          "nonprod",
+								"gcp_region":           "us",
+								"owner":                "hybridenv",
+							},
+							"name":                          "wf-us-prod-kms-app01-res0601",
+							"purpose":                       "ENCRYPT_DECRYPT",
+							"rotation_period":               "",
+							"skip_initial_version_creation": null,
+							"version_template": [
+								{
+									"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+									"protection_level": "SOFTWARE",
+								},
+							],
+						},
+					},
+					{
+						"address":          "data.google_kms_key_ring.keyring1",
 						"mode":             "data",
-						"name":             "key_ring",
+						"name":             "keyring1",
 						"provider_name":    "registry.terraform.io/hashicorp/google",
 						"schema_version":   0,
 						"sensitive_values": {},
@@ -643,135 +497,18 @@ raw = {
 						},
 					},
 					{
-						"address": "google_sql_database_instance.master2",
-						"depends_on": [
-							"data.google_kms_crypto_key.crypto_key13",
-							"data.google_kms_key_ring.key_ring",
-						],
-						"mode":           "managed",
-						"name":           "master2",
-						"provider_name":  "registry.terraform.io/hashicorp/google-beta",
-						"schema_version": 0,
-						"sensitive_values": {
-							"clone": [],
-							"ip_address": [
-								{},
-							],
-							"replica_configuration":  [],
-							"restore_backup_context": [],
-							"server_ca_cert": [
-								{},
-							],
-							"settings": [
-								{
-									"backup_configuration": [
-										{
-											"backup_retention_settings": [
-												{},
-											],
-										},
-									],
-									"database_flags":  [],
-									"insights_config": [],
-									"ip_configuration": [
-										{
-											"authorized_networks": [],
-										},
-									],
-									"location_preference": [
-										{},
-									],
-									"maintenance_window": [],
-									"user_labels":        {},
-								},
-							],
-						},
-						"type": "google_sql_database_instance",
+						"address":          "data.google_kms_key_ring.keyring2",
+						"mode":             "data",
+						"name":             "keyring2",
+						"provider_name":    "registry.terraform.io/hashicorp/google",
+						"schema_version":   0,
+						"sensitive_values": {},
+						"type":             "google_kms_key_ring",
 						"values": {
-							"clone":               [],
-							"connection_name":     "airline1-sabre-wolverine:us-central1:wf-us-prod-sql-app01-instance08",
-							"database_version":    "POSTGRES_11",
-							"deletion_protection": false,
-							"encryption_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
-							"first_ip_address":    "10.63.129.7",
-							"id":                  "wf-us-prod-sql-app01-instance08",
-							"ip_address": [
-								{
-									"ip_address":     "10.63.129.7",
-									"time_to_retire": "",
-									"type":           "PRIVATE",
-								},
-							],
-							"master_instance_name":   "",
-							"name":                   "wf-us-prod-sql-app01-instance08",
-							"private_ip_address":     "10.63.129.7",
-							"project":                "airline1-sabre-wolverine",
-							"public_ip_address":      "",
-							"region":                 "us-central1",
-							"replica_configuration":  [],
-							"restore_backup_context": [],
-							"root_password":          "REDACTED_SENSITIVE",
-							"self_link":              "https://sqladmin.googleapis.com/sql/v1beta4/projects/airline1-sabre-wolverine/instances/wf-us-prod-sql-app01-instance08",
-							"server_ca_cert": [
-								{
-									"cert":             "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyQzMWU2\nZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjExMjIwMTA1OTUxWhcNMzExMjE4MTEwMDUxWjB3MS0wKwYD\nVQQuEyQzMWU2ZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCz6rFrs0pai1FAuGsvinN7IipEVAsEi0mw5DHXSE9+FZrAkbT6Ci/BlnbIpN4B\n8OXx1FZLyBmyJ784LYBuMmk17rm8oi3XfvZJtWx+6Oh0yyTE75LRrOKIRqGSjMJs\nyciuCQ1XIiseANzzmNhGTggpjA7hYih3cvFJ/JsyWDoaAoZnWhgDPAM5s22U+1a9\nNX+MQnP5HYG5p9wSk5TNWxjPdV7JcYOwvumpHd05WUgUdoM9q4PkrmHPmT/mBWIq\nE1dShJdsMa7NoBRqBwGuIDKkJBTvLyW/L0FVv1+K6+r3cnxMT9VYFcp8bDHtgbSu\nB4NoPlGUiDwqdfska/NQGCnxAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAHfJseuDatDq6bHKt8CAJJlTgcpoAImkKEUrZx+n\nDW0lNB0oRg+3Q8ZjVqQMCrMaHYgCtjtAwRILzgCr6WUnmWETMg55LG31wVMf8r1j\nHjJ6wbM3Sf5AUcDjYurqxwLHGgAlfjZYSfwzp2P4b7g71AZWlWjAmyoZDqLDHCTQ\nmheZNsE6gau2hHSqE6WeTtwiOqPkAPlHkgzMIiP0NeMRnIOpecrlDLctU/uQlq97\nz7yIEiUDcYnacK6ABkjpyeATXcV8t076h7X77VGb5HYcZB4j+vXUTzQuw9HSGOKA\nXICaFHmjLVzZGavaZFinQSajH7baDMAmoOMCkIiueBhaHBE=\n-----END CERTIFICATE-----",
-									"common_name":      "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=31e6ddbc-a9f9-44a5-86d8-6ba1407ebe2b",
-									"create_time":      "2021-12-20T10:59:51.009Z",
-									"expiration_time":  "2031-12-18T11:00:51.009Z",
-									"sha1_fingerprint": "fe814bb50a7e765e9edc900eb8966551227b6e7c",
-								},
-							],
-							"service_account_email_address": "p680501254856-9opkuo@gcp-sa-cloud-sql.iam.gserviceaccount.com",
-							"settings": [
-								{
-									"activation_policy": "ALWAYS",
-									"availability_type": "ZONAL",
-									"backup_configuration": [
-										{
-											"backup_retention_settings": [
-												{
-													"retained_backups": 7,
-													"retention_unit":   "COUNT",
-												},
-											],
-											"binary_log_enabled":             false,
-											"enabled":                        false,
-											"location":                       "",
-											"point_in_time_recovery_enabled": false,
-											"start_time":                     "03:00",
-											"transaction_log_retention_days": 7,
-										},
-									],
-									"collation":             "",
-									"database_flags":        [],
-									"disk_autoresize":       true,
-									"disk_autoresize_limit": 0,
-									"disk_size":             10,
-									"disk_type":             "PD_SSD",
-									"insights_config":       [],
-									"ip_configuration": [
-										{
-											"allocated_ip_range":  "",
-											"authorized_networks": [],
-											"ipv4_enabled":        false,
-											"private_network":     "projects/airline1-sabre-wolverine/global/networks/default",
-											"require_ssl":         false,
-										},
-									],
-									"location_preference": [
-										{
-											"follow_gae_application": "",
-											"zone": "us-central1-f",
-										},
-									],
-									"maintenance_window": [],
-									"pricing_plan":       "PER_USE",
-									"tier":               "db-f1-micro",
-									"user_labels":        {},
-									"version":            1,
-								},
-							],
-							"timeouts": null,
+							"id":       "projects/airline1-sabre-wolverine/locations/us-east1/keyRings/wf-us-prod-kms-app01-res06",
+							"location": "us-east1",
+							"name":     "wf-us-prod-kms-app01-res06",
+							"project":  "airline1-sabre-wolverine",
 						},
 					},
 				],
@@ -780,269 +517,118 @@ raw = {
 	},
 	"resource_changes": [
 		{
-			"address": "google_sql_database_instance.master2",
+			"address": "google_secret_manager_secret.secret-basic",
 			"change": {
 				"actions": [
-					"update",
+					"create",
 				],
 				"after": {
-					"clone":               [],
-					"connection_name":     "airline1-sabre-wolverine:us-central1:wf-us-prod-sql-app01-instance08",
-					"database_version":    "POSTGRES_11",
-					"deletion_protection": false,
-					"encryption_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
-					"first_ip_address":    "10.63.129.7",
-					"id":                  "wf-us-prod-sql-app01-instance08",
-					"ip_address": [
+					"labels": {
+						"application_division": "pci",
+						"application_name":     "demo",
+						"application_role":     "app",
+						"au":                   "0223092",
+						"created":              "20211122",
+						"environment":          "nonprod",
+						"gcp_region":           "us",
+						"owner":                "hybridenv",
+					},
+					"replication": [
 						{
-							"ip_address":     "10.63.129.7",
-							"time_to_retire": "",
-							"type":           "PRIVATE",
-						},
-					],
-					"master_instance_name":   "",
-					"name":                   "wf-us-prod-sql-app01-instance08",
-					"private_ip_address":     "10.63.129.7",
-					"project":                "airline1-sabre-wolverine",
-					"public_ip_address":      "",
-					"region":                 "us-central1",
-					"replica_configuration":  [],
-					"restore_backup_context": [],
-					"root_password":          "REDACTED_SENSITIVE",
-					"self_link":              "https://sqladmin.googleapis.com/sql/v1beta4/projects/airline1-sabre-wolverine/instances/wf-us-prod-sql-app01-instance08",
-					"server_ca_cert": [
-						{
-							"cert":             "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyQzMWU2\nZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjExMjIwMTA1OTUxWhcNMzExMjE4MTEwMDUxWjB3MS0wKwYD\nVQQuEyQzMWU2ZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCz6rFrs0pai1FAuGsvinN7IipEVAsEi0mw5DHXSE9+FZrAkbT6Ci/BlnbIpN4B\n8OXx1FZLyBmyJ784LYBuMmk17rm8oi3XfvZJtWx+6Oh0yyTE75LRrOKIRqGSjMJs\nyciuCQ1XIiseANzzmNhGTggpjA7hYih3cvFJ/JsyWDoaAoZnWhgDPAM5s22U+1a9\nNX+MQnP5HYG5p9wSk5TNWxjPdV7JcYOwvumpHd05WUgUdoM9q4PkrmHPmT/mBWIq\nE1dShJdsMa7NoBRqBwGuIDKkJBTvLyW/L0FVv1+K6+r3cnxMT9VYFcp8bDHtgbSu\nB4NoPlGUiDwqdfska/NQGCnxAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAHfJseuDatDq6bHKt8CAJJlTgcpoAImkKEUrZx+n\nDW0lNB0oRg+3Q8ZjVqQMCrMaHYgCtjtAwRILzgCr6WUnmWETMg55LG31wVMf8r1j\nHjJ6wbM3Sf5AUcDjYurqxwLHGgAlfjZYSfwzp2P4b7g71AZWlWjAmyoZDqLDHCTQ\nmheZNsE6gau2hHSqE6WeTtwiOqPkAPlHkgzMIiP0NeMRnIOpecrlDLctU/uQlq97\nz7yIEiUDcYnacK6ABkjpyeATXcV8t076h7X77VGb5HYcZB4j+vXUTzQuw9HSGOKA\nXICaFHmjLVzZGavaZFinQSajH7baDMAmoOMCkIiueBhaHBE=\n-----END CERTIFICATE-----",
-							"common_name":      "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=31e6ddbc-a9f9-44a5-86d8-6ba1407ebe2b",
-							"create_time":      "2021-12-20T10:59:51.009Z",
-							"expiration_time":  "2031-12-18T11:00:51.009Z",
-							"sha1_fingerprint": "fe814bb50a7e765e9edc900eb8966551227b6e7c",
-						},
-					],
-					"service_account_email_address": "p680501254856-9opkuo@gcp-sa-cloud-sql.iam.gserviceaccount.com",
-					"settings": [
-						{
-							"activation_policy": "ALWAYS",
-							"availability_type": "ZONAL",
-							"backup_configuration": [
+							"automatic": null,
+							"user_managed": [
 								{
-									"backup_retention_settings": [
+									"replicas": [
 										{
-											"retained_backups": 7,
-											"retention_unit":   "COUNT",
+											"customer_managed_encryption": [
+												{
+													"kms_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
+												},
+											],
+											"location": "us-central1",
+										},
+										{
+											"customer_managed_encryption": [
+												{
+													"kms_key_name": "projects/airline1-sabre-wolverine/locations/us-east1/keyRings/wf-us-prod-kms-app01-res06/cryptoKeys/wf-us-prod-kms-app01-res0601",
+												},
+											],
+											"location": "us-east1",
 										},
 									],
-									"binary_log_enabled":             false,
-									"enabled":                        false,
-									"location":                       "",
-									"point_in_time_recovery_enabled": false,
-									"start_time":                     "03:00",
-									"transaction_log_retention_days": 7,
 								},
 							],
-							"collation":             "",
-							"database_flags":        [],
-							"disk_autoresize":       true,
-							"disk_autoresize_limit": 0,
-							"disk_size":             10,
-							"disk_type":             "PD_SSD",
-							"insights_config":       [],
-							"ip_configuration": [
-								{
-									"allocated_ip_range":  "",
-									"authorized_networks": [],
-									"ipv4_enabled":        false,
-									"private_network":     "projects/airline1-sabre-wolverine/global/networks/default",
-									"require_ssl":         false,
-								},
-							],
-							"location_preference": [
-								{
-									"follow_gae_application": "",
-									"zone": "us-central1-f",
-								},
-							],
-							"maintenance_window": [],
-							"pricing_plan":       "PER_USE",
-							"tier":               "db-f1-micro",
-							"user_labels": {
-								"application_division": "pci",
-								"application_name":     "demo",
-								"application_role":     "app",
-								"au":                   "0223092",
-								"created":              "20211122",
-								"environment":          "nonprod",
-								"gcp_region":           "us",
-								"owner":                "hybridenv",
-							},
-							"version": 1,
 						},
 					],
-					"timeouts": null,
+					"rotation":  [],
+					"secret_id": "wf-us-prod-sm-app01-sm01",
+					"timeouts":  null,
+					"topics":    [],
+					"ttl":       null,
 				},
 				"after_sensitive": {
-					"clone": [],
-					"ip_address": [
-						{},
-					],
-					"replica_configuration":  [],
-					"restore_backup_context": [],
-					"root_password":          true,
-					"server_ca_cert": [
-						{},
-					],
-					"settings": [
+					"labels": {},
+					"replication": [
 						{
-							"backup_configuration": [
+							"user_managed": [
 								{
-									"backup_retention_settings": [
-										{},
-									],
-								},
-							],
-							"database_flags":  [],
-							"insights_config": [],
-							"ip_configuration": [
-								{
-									"authorized_networks": [],
-								},
-							],
-							"location_preference": [
-								{},
-							],
-							"maintenance_window": [],
-							"user_labels":        {},
-						},
-					],
-				},
-				"after_unknown": {},
-				"before": {
-					"clone":               [],
-					"connection_name":     "airline1-sabre-wolverine:us-central1:wf-us-prod-sql-app01-instance08",
-					"database_version":    "POSTGRES_11",
-					"deletion_protection": false,
-					"encryption_key_name": "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/wf-us-prod-kms-app01-res05/cryptoKeys/wf-us-prod-kms-app01-res0501",
-					"first_ip_address":    "10.63.129.7",
-					"id":                  "wf-us-prod-sql-app01-instance08",
-					"ip_address": [
-						{
-							"ip_address":     "10.63.129.7",
-							"time_to_retire": "",
-							"type":           "PRIVATE",
-						},
-					],
-					"master_instance_name":   "",
-					"name":                   "wf-us-prod-sql-app01-instance08",
-					"private_ip_address":     "10.63.129.7",
-					"project":                "airline1-sabre-wolverine",
-					"public_ip_address":      "",
-					"region":                 "us-central1",
-					"replica_configuration":  [],
-					"restore_backup_context": [],
-					"root_password":          "REDACTED_SENSITIVE",
-					"self_link":              "https://sqladmin.googleapis.com/sql/v1beta4/projects/airline1-sabre-wolverine/instances/wf-us-prod-sql-app01-instance08",
-					"server_ca_cert": [
-						{
-							"cert":             "-----BEGIN CERTIFICATE-----\nMIIDfzCCAmegAwIBAgIBADANBgkqhkiG9w0BAQsFADB3MS0wKwYDVQQuEyQzMWU2\nZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNVBAMTGkdvb2ds\nZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUsIEluYzELMAkG\nA1UEBhMCVVMwHhcNMjExMjIwMTA1OTUxWhcNMzExMjE4MTEwMDUxWjB3MS0wKwYD\nVQQuEyQzMWU2ZGRiYy1hOWY5LTQ0YTUtODZkOC02YmExNDA3ZWJlMmIxIzAhBgNV\nBAMTGkdvb2dsZSBDbG91ZCBTUUwgU2VydmVyIENBMRQwEgYDVQQKEwtHb29nbGUs\nIEluYzELMAkGA1UEBhMCVVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB\nAQCz6rFrs0pai1FAuGsvinN7IipEVAsEi0mw5DHXSE9+FZrAkbT6Ci/BlnbIpN4B\n8OXx1FZLyBmyJ784LYBuMmk17rm8oi3XfvZJtWx+6Oh0yyTE75LRrOKIRqGSjMJs\nyciuCQ1XIiseANzzmNhGTggpjA7hYih3cvFJ/JsyWDoaAoZnWhgDPAM5s22U+1a9\nNX+MQnP5HYG5p9wSk5TNWxjPdV7JcYOwvumpHd05WUgUdoM9q4PkrmHPmT/mBWIq\nE1dShJdsMa7NoBRqBwGuIDKkJBTvLyW/L0FVv1+K6+r3cnxMT9VYFcp8bDHtgbSu\nB4NoPlGUiDwqdfska/NQGCnxAgMBAAGjFjAUMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nDQYJKoZIhvcNAQELBQADggEBAHfJseuDatDq6bHKt8CAJJlTgcpoAImkKEUrZx+n\nDW0lNB0oRg+3Q8ZjVqQMCrMaHYgCtjtAwRILzgCr6WUnmWETMg55LG31wVMf8r1j\nHjJ6wbM3Sf5AUcDjYurqxwLHGgAlfjZYSfwzp2P4b7g71AZWlWjAmyoZDqLDHCTQ\nmheZNsE6gau2hHSqE6WeTtwiOqPkAPlHkgzMIiP0NeMRnIOpecrlDLctU/uQlq97\nz7yIEiUDcYnacK6ABkjpyeATXcV8t076h7X77VGb5HYcZB4j+vXUTzQuw9HSGOKA\nXICaFHmjLVzZGavaZFinQSajH7baDMAmoOMCkIiueBhaHBE=\n-----END CERTIFICATE-----",
-							"common_name":      "C=US,O=Google\\, Inc,CN=Google Cloud SQL Server CA,dnQualifier=31e6ddbc-a9f9-44a5-86d8-6ba1407ebe2b",
-							"create_time":      "2021-12-20T10:59:51.009Z",
-							"expiration_time":  "2031-12-18T11:00:51.009Z",
-							"sha1_fingerprint": "fe814bb50a7e765e9edc900eb8966551227b6e7c",
-						},
-					],
-					"service_account_email_address": "p680501254856-9opkuo@gcp-sa-cloud-sql.iam.gserviceaccount.com",
-					"settings": [
-						{
-							"activation_policy": "ALWAYS",
-							"availability_type": "ZONAL",
-							"backup_configuration": [
-								{
-									"backup_retention_settings": [
+									"replicas": [
 										{
-											"retained_backups": 7,
-											"retention_unit":   "COUNT",
+											"customer_managed_encryption": [
+												{},
+											],
+										},
+										{
+											"customer_managed_encryption": [
+												{},
+											],
 										},
 									],
-									"binary_log_enabled":             false,
-									"enabled":                        false,
-									"location":                       "",
-									"point_in_time_recovery_enabled": false,
-									"start_time":                     "03:00",
-									"transaction_log_retention_days": 7,
 								},
 							],
-							"collation":             "",
-							"database_flags":        [],
-							"disk_autoresize":       true,
-							"disk_autoresize_limit": 0,
-							"disk_size":             10,
-							"disk_type":             "PD_SSD",
-							"insights_config":       [],
-							"ip_configuration": [
-								{
-									"allocated_ip_range":  "",
-									"authorized_networks": [],
-									"ipv4_enabled":        false,
-									"private_network":     "projects/airline1-sabre-wolverine/global/networks/default",
-									"require_ssl":         false,
-								},
-							],
-							"location_preference": [
-								{
-									"follow_gae_application": "",
-									"zone": "us-central1-f",
-								},
-							],
-							"maintenance_window": [],
-							"pricing_plan":       "PER_USE",
-							"tier":               "db-f1-micro",
-							"user_labels":        {},
-							"version":            1,
 						},
 					],
-					"timeouts": null,
+					"rotation": [],
+					"topics":   [],
 				},
-				"before_sensitive": {
-					"clone": [],
-					"ip_address": [
-						{},
-					],
-					"replica_configuration":  [],
-					"restore_backup_context": [],
-					"root_password":          true,
-					"server_ca_cert": [
-						{},
-					],
-					"settings": [
+				"after_unknown": {
+					"create_time": true,
+					"expire_time": true,
+					"id":          true,
+					"labels":      {},
+					"name":        true,
+					"project":     true,
+					"replication": [
 						{
-							"backup_configuration": [
+							"user_managed": [
 								{
-									"backup_retention_settings": [
-										{},
+									"replicas": [
+										{
+											"customer_managed_encryption": [
+												{},
+											],
+										},
+										{
+											"customer_managed_encryption": [
+												{},
+											],
+										},
 									],
 								},
 							],
-							"database_flags":  [],
-							"insights_config": [],
-							"ip_configuration": [
-								{
-									"authorized_networks": [],
-								},
-							],
-							"location_preference": [
-								{},
-							],
-							"maintenance_window": [],
-							"user_labels":        {},
 						},
 					],
+					"rotation": [],
+					"topics":   [],
 				},
+				"before":           null,
+				"before_sensitive": false,
 			},
 			"mode":          "managed",
-			"name":          "master2",
-			"provider_name": "registry.terraform.io/hashicorp/google-beta",
-			"type":          "google_sql_database_instance",
+			"name":          "secret-basic",
+			"provider_name": "registry.terraform.io/hashicorp/google",
+			"type":          "google_secret_manager_secret",
 		},
 	],
-	"terraform_version": "1.1.2",
+	"terraform_version": "1.0.11",
 }

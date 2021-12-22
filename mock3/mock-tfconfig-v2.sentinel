@@ -1,0 +1,133 @@
+import "strings"
+
+providers = {
+	"google": {
+		"alias": "",
+		"config": {
+			"project": {
+				"constant_value": "airline1-sabre-wolverine",
+			},
+		},
+		"module_address":      "",
+		"name":                "google",
+		"provider_config_key": "google",
+		"version_constraint":  "",
+	},
+	"google-beta": {
+		"alias": "",
+		"config": {
+			"project": {
+				"constant_value": "airline1-sabre-wolverine",
+			},
+		},
+		"module_address":      "",
+		"name":                "google-beta",
+		"provider_config_key": "google-beta",
+		"version_constraint":  "",
+	},
+}
+
+resources = {
+	"data.google_kms_crypto_key.crypto_key13": {
+		"address": "data.google_kms_crypto_key.crypto_key13",
+		"config": {
+			"key_ring": {
+				"references": [
+					"data.google_kms_key_ring.key_ring.id",
+					"data.google_kms_key_ring.key_ring",
+				],
+			},
+			"name": {
+				"constant_value": "us-dev-abcd-fghi-cryptokey13",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "data",
+		"module_address":      "",
+		"name":                "crypto_key13",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_kms_crypto_key",
+	},
+	"data.google_kms_key_ring.key_ring": {
+		"address": "data.google_kms_key_ring.key_ring",
+		"config": {
+			"location": {
+				"constant_value": "us-central1",
+			},
+			"name": {
+				"constant_value": "us-dev-abcd-fghi-keyring1",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "data",
+		"module_address":      "",
+		"name":                "key_ring",
+		"provider_config_key": "google",
+		"provisioners":        [],
+		"type":                "google_kms_key_ring",
+	},
+	"google_sql_database_instance.master2": {
+		"address": "google_sql_database_instance.master2",
+		"config": {
+			"database_version": {
+				"constant_value": "POSTGRES_11",
+			},
+			"deletion_protection": {
+				"constant_value": false,
+			},
+			"encryption_key_name": {
+				"references": [
+					"data.google_kms_crypto_key.crypto_key13.id",
+					"data.google_kms_crypto_key.crypto_key13",
+				],
+			},
+			"name": {
+				"constant_value": "us-dev-abcd-fghi-postgres-master10",
+			},
+			"project": {
+				"constant_value": "airline1-sabre-wolverine",
+			},
+			"region": {
+				"constant_value": "us-central1",
+			},
+			"settings": [
+				{
+					"tier": {
+						"constant_value": "db-f1-micro",
+					},
+				},
+			],
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "master2",
+		"provider_config_key": "google-beta",
+		"provisioners":        [],
+		"type":                "google_sql_database_instance",
+	},
+}
+
+provisioners = {}
+
+variables = {}
+
+outputs = {}
+
+module_calls = {}
+
+strip_index = func(addr) {
+	s = strings.split(addr, ".")
+	for s as i, v {
+		s[i] = strings.split(v, "[")[0]
+	}
+
+	return strings.join(s, ".")
+}

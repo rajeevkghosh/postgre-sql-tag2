@@ -1,0 +1,22 @@
+{
+	"records": [
+		{
+			"key": "test/tagging_gcp_validation/postgresql-fail/tfplan-functions",
+			"source": "../../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/home/rajeevghosh/wells-21DEC/postgre-sql-tag2/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/tagging_gcp_validation/postgresql-pass/tfplan-functions",
+			"source": "../../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/home/rajeevghosh/wells-21DEC/postgre-sql-tag2/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		},
+		{
+			"key": "test/tagging_gcp_validation/postgresql-null/tfplan-functions",
+			"source": "../../../common-functions/tfplan-functions/tfplan-functions.sentinel",
+			"sourceSum": "",
+			"dest": "/home/rajeevghosh/wells-21DEC/postgre-sql-tag2/common-functions/tfplan-functions/tfplan-functions.sentinel"
+		}
+	]
+}

@@ -1,0 +1,66 @@
+terraform_version = "1.0.11"
+
+outputs = {}
+
+resources = {
+	"google_kms_crypto_key.crypto_key13": {
+		"address":        "google_kms_crypto_key.crypto_key13",
+		"depends_on":     [],
+		"deposed_key":    "",
+		"index":          null,
+		"mode":           "data",
+		"module_address": "",
+		"name":           "crypto_key13",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"tainted":        false,
+		"type":           "google_kms_crypto_key",
+		"values": {
+			"destroy_scheduled_duration": "86400s",
+			"id":          "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1/cryptoKeys/us-dev-abcd-fghi-cryptokey13",
+			"import_only": false,
+			"key_ring":    "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1",
+			"labels": {
+				"application_division": "pci",
+				"application_name":     "demo",
+				"application_role":     "app",
+				"au":                   "0223092",
+				"created":              "20211122",
+				"data_compliance":      "pci",
+				"data_confidentiality": "pub",
+				"data_type":            "test",
+				"env":                  "default",
+				"environment":          "dev",
+				"gcp_region":           "us",
+				"owner":                "hybridenv",
+			},
+			"name":                          "us-dev-abcd-fghi-cryptokey13",
+			"purpose":                       "ENCRYPT_DECRYPT",
+			"rotation_period":               "7776000s",
+			"skip_initial_version_creation": null,
+			"version_template": [
+				{
+					"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+					"protection_level": "SOFTWARE",
+				},
+			],
+		},
+	},
+	"google_kms_key_ring.key_ring": {
+		"address":        "google_kms_key_ring.key_ring",
+		"depends_on":     [],
+		"deposed_key":    "",
+		"index":          null,
+		"mode":           "data",
+		"module_address": "",
+		"name":           "key_ring",
+		"provider_name":  "registry.terraform.io/hashicorp/google",
+		"tainted":        false,
+		"type":           "google_kms_key_ring",
+		"values": {
+			"id":       "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1",
+			"location": "us-central1",
+			"name":     "us-dev-abcd-fghi-keyring1",
+			"project":  "airline1-sabre-wolverine",
+		},
+	},
+}

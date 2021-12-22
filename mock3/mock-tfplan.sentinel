@@ -1,0 +1,278 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"google_sql_database_instance": {
+				"master2": {
+					0: {
+						"applied": {
+							"clone":                  [],
+							"database_version":       "POSTGRES_11",
+							"deletion_protection":    false,
+							"encryption_key_name":    "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1/cryptoKeys/us-dev-abcd-fghi-cryptokey13",
+							"name":                   "us-dev-abcd-fghi-postgres-master10",
+							"project":                "airline1-sabre-wolverine",
+							"region":                 "us-central1",
+							"restore_backup_context": [],
+							"root_password":          "REDACTED_SENSITIVE",
+							"settings": [
+								{
+									"activation_policy":     "ALWAYS",
+									"availability_type":     "ZONAL",
+									"collation":             null,
+									"database_flags":        [],
+									"disk_autoresize":       true,
+									"disk_autoresize_limit": 0,
+									"disk_type":             "PD_SSD",
+									"insights_config":       [],
+									"maintenance_window":    [],
+									"pricing_plan":          "PER_USE",
+									"tier":                  "db-f1-micro",
+								},
+							],
+							"timeouts": null,
+						},
+						"destroy": false,
+						"diff": {
+							"clone.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"connection_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"database_version": {
+								"computed": false,
+								"new":      "POSTGRES_11",
+								"old":      "",
+							},
+							"deletion_protection": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"encryption_key_name": {
+								"computed": false,
+								"new":      "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1/cryptoKeys/us-dev-abcd-fghi-cryptokey13",
+								"old":      "",
+							},
+							"first_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"ip_address.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"master_instance_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "us-dev-abcd-fghi-postgres-master10",
+								"old":      "",
+							},
+							"private_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"project": {
+								"computed": false,
+								"new":      "airline1-sabre-wolverine",
+								"old":      "",
+							},
+							"public_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"region": {
+								"computed": false,
+								"new":      "us-central1",
+								"old":      "",
+							},
+							"replica_configuration.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"restore_backup_context.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"root_password": {
+								"computed": false,
+								"new":      "REDACTED_SENSITIVE",
+								"old":      "",
+							},
+							"self_link": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"server_ca_cert.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"service_account_email_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"settings.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.activation_policy": {
+								"computed": false,
+								"new":      "ALWAYS",
+								"old":      "",
+							},
+							"settings.0.availability_type": {
+								"computed": false,
+								"new":      "ZONAL",
+								"old":      "",
+							},
+							"settings.0.backup_configuration": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.collation": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.database_flags.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"settings.0.disk_autoresize": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"settings.0.disk_autoresize_limit": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"settings.0.disk_size": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.disk_type": {
+								"computed": false,
+								"new":      "PD_SSD",
+								"old":      "",
+							},
+							"settings.0.insights_config.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"settings.0.ip_configuration": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.location_preference": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.maintenance_window.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"settings.0.pricing_plan": {
+								"computed": false,
+								"new":      "PER_USE",
+								"old":      "",
+							},
+							"settings.0.tier": {
+								"computed": false,
+								"new":      "db-f1-micro",
+								"old":      "",
+							},
+							"settings.0.user_labels": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"settings.0.version": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "1.0.11"
+
+variables = {}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

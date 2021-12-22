@@ -1,0 +1,146 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {
+			"google_kms_crypto_key": {
+				"crypto_key13": {
+					"config": {
+						"name": "us-dev-abcd-fghi-cryptokey13",
+					},
+					"provisioners": null,
+					"references": {
+						"key_ring": [
+							"data.google_kms_key_ring.key_ring.id",
+							"data.google_kms_key_ring.key_ring",
+						],
+						"name": [],
+					},
+				},
+			},
+			"google_kms_key_ring": {
+				"key_ring": {
+					"config": {
+						"location": "us-central1",
+						"name":     "us-dev-abcd-fghi-keyring1",
+					},
+					"provisioners": null,
+					"references": {
+						"location": [],
+						"name":     [],
+					},
+				},
+			},
+		},
+		"modules": {},
+		"outputs": {},
+		"providers": {
+			"google": {
+				"alias": {
+					"": {
+						"config": {
+							"project": "airline1-sabre-wolverine",
+						},
+						"references": {
+							"project": [],
+						},
+						"version": "",
+					},
+				},
+				"config": {
+					"project": "airline1-sabre-wolverine",
+				},
+				"references": {
+					"project": [],
+				},
+				"version": "",
+			},
+			"google-beta": {
+				"alias": {
+					"": {
+						"config": {
+							"project": "airline1-sabre-wolverine",
+						},
+						"references": {
+							"project": [],
+						},
+						"version": "",
+					},
+				},
+				"config": {
+					"project": "airline1-sabre-wolverine",
+				},
+				"references": {
+					"project": [],
+				},
+				"version": "",
+			},
+		},
+		"resources": {
+			"google_sql_database_instance": {
+				"master2": {
+					"config": {
+						"database_version":    "POSTGRES_11",
+						"deletion_protection": false,
+						"name":                "us-dev-abcd-fghi-postgres-master10",
+						"project":             "airline1-sabre-wolverine",
+						"region":              "us-central1",
+						"settings": [
+							{
+								"tier": "db-f1-micro",
+							},
+						],
+					},
+					"provisioners": null,
+					"references": {
+						"database_version":    [],
+						"deletion_protection": [],
+						"encryption_key_name": [
+							"data.google_kms_crypto_key.crypto_key13.id",
+							"data.google_kms_crypto_key.crypto_key13",
+						],
+						"name":    [],
+						"project": [],
+						"region":  [],
+						"settings": [
+							{
+								"tier": [],
+							},
+						],
+					},
+				},
+			},
+		},
+		"variables": {},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+modules = _modules.root.modules
+providers = _modules.root.providers
+resources = _modules.root.resources
+variables = _modules.root.variables
+outputs = _modules.root.outputs

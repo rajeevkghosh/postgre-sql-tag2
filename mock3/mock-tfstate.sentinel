@@ -1,0 +1,95 @@
+import "strings"
+import "types"
+
+outputs = {}
+
+_modules = {
+	"root": {
+		"data": {
+			"google_kms_crypto_key": {
+				"crypto_key13": {
+					0: {
+						"attr": {
+							"destroy_scheduled_duration": "86400s",
+							"id":          "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1/cryptoKeys/us-dev-abcd-fghi-cryptokey13",
+							"import_only": false,
+							"key_ring":    "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1",
+							"labels": {
+								"application_division": "pci",
+								"application_name":     "demo",
+								"application_role":     "app",
+								"au":                   "0223092",
+								"created":              "20211122",
+								"data_compliance":      "pci",
+								"data_confidentiality": "pub",
+								"data_type":            "test",
+								"env":                  "default",
+								"environment":          "dev",
+								"gcp_region":           "us",
+								"owner":                "hybridenv",
+							},
+							"name":                          "us-dev-abcd-fghi-cryptokey13",
+							"purpose":                       "ENCRYPT_DECRYPT",
+							"rotation_period":               "7776000s",
+							"skip_initial_version_creation": null,
+							"version_template": [
+								{
+									"algorithm":        "GOOGLE_SYMMETRIC_ENCRYPTION",
+									"protection_level": "SOFTWARE",
+								},
+							],
+						},
+						"depends_on": [],
+						"id":         "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1/cryptoKeys/us-dev-abcd-fghi-cryptokey13",
+						"tainted":    false,
+					},
+				},
+			},
+			"google_kms_key_ring": {
+				"key_ring": {
+					0: {
+						"attr": {
+							"id":       "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1",
+							"location": "us-central1",
+							"name":     "us-dev-abcd-fghi-keyring1",
+							"project":  "airline1-sabre-wolverine",
+						},
+						"depends_on": [],
+						"id":         "projects/airline1-sabre-wolverine/locations/us-central1/keyRings/us-dev-abcd-fghi-keyring1",
+						"tainted":    false,
+					},
+				},
+			},
+		},
+		"path":      [],
+		"resources": {},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "1.0.11"
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources
