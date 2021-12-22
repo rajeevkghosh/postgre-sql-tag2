@@ -59,7 +59,7 @@ check_for_label_value_matches = func(address, rc, label_key) {
 		#print(hk)
 		if lc != "created" {
 			if hk not in plan.to_string(mandatory_labels[lc]) {
-				print("no match")
+				#print("no match")
 				violations_value[address] = rc
 			}
 
@@ -72,7 +72,8 @@ check_for_labels = func(address, rc, label_key) {
 	violations = {}
 	label_arr = []
 	label_chk = plan.evaluate_attribute(rc.change.after, label_key)
-	is_label_undefined = rule { types.type_of(label_chk) is "undefined" }
+	#print(types.type_of(label_chk))
+	is_label_undefined = rule { types.type_of(label_chk) is "undefined" or types.type_of(label_chk) is "null"  }
 	if is_label_undefined {
 		violations[address] = rc
 	} else {
@@ -97,7 +98,7 @@ check_for_labels = func(address, rc, label_key) {
 
 msgs = {}
 for allResources as address, rc {
-	print(address)
+	#print(address)
 	msg = check_for_labels(
 		address,
 		rc,
